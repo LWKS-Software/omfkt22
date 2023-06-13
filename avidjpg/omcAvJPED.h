@@ -1,0 +1,52 @@
+/***********************************************************************
+ *
+ *              Copyright (c) 1996 Avid Technology, Inc.
+ *
+ * Permission to use, copy and modify this software and to distribute
+ * and sublicense application software incorporating this software for
+ * any purpose is hereby granted, provided that (i) the above
+ * copyright notice and this permission notice appear in all copies of
+ * the software and related documentation, and (ii) the name Avid
+ * Technology, Inc. may not be used in any advertising or publicity
+ * relating to the software without the specific, prior written
+ * permission of Avid Technology, Inc.
+ *
+ * THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+ * WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+ * IN NO EVENT SHALL AVID TECHNOLOGY, INC. BE LIABLE FOR ANY DIRECT,
+ * SPECIAL, INCIDENTAL, INDIRECT, CONSEQUENTIAL OR OTHER DAMAGES OF
+ * ANY KIND, OR ANY DAMAGES WHATSOEVER ARISING OUT OF OR IN
+ * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE, INCLUDING, 
+ * WITHOUT  LIMITATION, DAMAGES RESULTING FROM LOSS OF USE,
+ * DATA OR PROFITS, AND WHETHER OR NOT ADVISED OF THE POSSIBILITY OF
+ * DAMAGE, REGARDLESS OF THE THEORY OF LIABILITY.
+ *
+ ************************************************************************/
+
+#ifndef _OMF_AVIDJPEG_CODEC_
+#define _OMF_AVIDJPEG_CODEC_ 1
+
+#include "omCodec.h"
+
+#if PORT_LANG_CPLUSPLUS
+extern          "C"
+{
+#endif
+
+#define CODEC_AVID_JPEG_VIDEO	"MSM JPEG Codec"
+
+OMF_EXPORT omfErr_t omfCodecAvJPED(omfCodecFunctions_t func, 
+					  omfCodecParms_t * parmblk);
+
+#if PORT_LANG_CPLUSPLUS
+}
+#endif
+#endif				/* _OMF_AVIDJPEG_CODEC_ */
+
+/* INDENT OFF */
+/*
+;;; Local Variables: ***
+;;; tab-width:4 ***
+;;; End: ***
+*/

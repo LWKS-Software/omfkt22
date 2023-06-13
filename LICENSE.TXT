@@ -1,0 +1,115 @@
+AVID TECHNOLOGY, INC.
+SOFTWARE LICENSE AGREEMENT
+
+
+AVID TECHNOLOGY IS WILLING TO LICENSE THE SOFTWARE TO YOU ONLY 
+UPON THE CONDITION THAT YOU ACCEPT ALL OF THE TERMS CONTAINED 
+IN THIS LICENSE AGREEMENT.  PLEASE READ THE TERMS CAREFULLY 
+BEFORE USING THE SOFTWARE.  IF YOU DO NOT AGREE TO THESE TERMS, 
+THEN AVID IS UNWILLING TO LICENSE THE SOFTWARE TO YOU, IN WHICH 
+EVENT YOU SHOULD RETURN THE UNUSED SOFTWARE TO AVID OR THE 
+PLACE OF PURCHASE AND YOUR MONEY WILL BE REFUNDED. 
+
+
+Limited Use License
+
+Avid Technology, Inc. ("AVID") grants you, the end user ("Licensee"),
+the non- transferable, non-exclusive right, without the right to
+sublicense or rent, to use the enclosed software source code (the
+"Software") solely for your internal purposes. You may copy the
+Software to multiple computer systems within your organization for
+development purposes, but you may not distribute the Software outside
+of your organization. You may modify the Software.  AVID grants you
+the license to distribute unlimited copies of the Software compiled in
+executable form only as linked into your software applications.
+
+Title
+
+This License is not a sale of the Software or any copy.  AVID retains
+title and ownership of the Software the documentation, including
+patents, copyrights, trademarks and proprietary rights applicable
+thereto, and all copies, regardless of the form or media on or in
+which the original or any copy may exist.  Except as stated herein,
+this Agreement does not grant you any rights to patents, copyrights,
+trade secrets, trademarks or any other rights in respect of Software
+and documentation.
+
+Government End Users
+
+
+U.S. GOVERNMENT RESTRICTED RIGHTS.  The Software was developed at
+private expense and with no government funds and is a trade secret of
+AVID.  If you are the U.S.  Government or its contractor, use,
+duplication or disclosure by the government of the Software and
+Documentation and other technical data is subject to restrictions as
+set forth in subparagraph (c)(1) of FAR clause 52.227-19, COMMERCIAL
+COMPUTER SOFTWARE - RESTRICTED RIGHTS or, in the case of the
+Department of Defense or its contractor, subparagraph (c)(1)(ii) of
+the Rights in Technical Data and Computer Software clause at DFARS
+252.227-7013.  The Software is proprietary data, all rights of which
+are reserved under the copyright laws of the United States.
+
+Warranty
+
+If the Software was distributed on magnetic or optical media, AVID
+warrants that the media on which the Software is furnished will be
+free from defects in materials and workmanship under normal use for a
+period of ninety (90) days from the date of the original purchase.  If
+a defect appears during the warranty period, return the
+diskette/compact disk/tape to the place you obtained them, with your
+receipt, and you will receive a free replacement, or at AVID's option,
+a refund of your purchase price.  AVID MAKES NO WARRANTIES, EXPRESS OR
+IMPLIED, WITH RESPECT TO THE SOFTWARE, ITS NON- INFRINGEMENT OF THIRD
+PARTY'S RIGHTS, ITS QUALITY, PERFORMANCE, MERCHANTABILITY, OR FITNESS
+FOR A PARTICULAR PURPOSE.  THIS SOFTWARE IS SOLD "AS IS."  THE ENTIRE
+RISK AS TO ITS QUALITY AND PERFORMANCE IS WITH YOU.  SHOULD THE
+SOFTWARE PROVE DEFECTIVE FOLLOWING ITS PURCHASE, YOU (AND NOT AVID
+TECHNOLOGY, INC., THEIR DISTRIBUTORS OR THEIR RETAILERS) ASSUME THE
+ENTIRE COST OF ALL NECESSARY REPAIR, CORRECTION, OR SERVICING.
+
+Exclusion Of Damages
+IN NO EVENT WILL AVID BE LIABLE FOR DIRECT, INDIRECT, SPECIAL, 
+ECONOMIC, INCIDENTAL OR CONSEQUENTIAL DAMAGE, OR DAMAGES 
+RESULTING FROM LOSS OF USE, LOSS OF DATA OR LOSS OF ANTICIPATED 
+PROFITS RESULTING FROM THE SOFTWARE EVEN IF THEY HAVE BEEN 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  AVID'S LIABILITY TO YOU 
+OR ANY RELATED THIRD PARTY FOR ACTUAL DAMAGES FOR ANY CAUSE 
+WHATSOEVER WILL BE LIMITED TO THE AMOUNT THAT YOU PAID AVID FOR 
+THE SOFTWARE.
+
+Term
+
+This License is effective until terminated.  You may terminate the
+License at any time by returning the Software and all documentation to
+AVID and by removing the Software from the memory of all computers
+into which the Software has been transferred.  This License shall
+terminate automatically if you fail to comply with any term or
+condition contained herein.  Upon termination, you must return to
+AVID, at your own expense, the Software and documentation and any
+copies whether or not the copy was authorized hereunder.
+
+Export
+
+You agree that neither the Software nor any direct product thereof is
+being or will be shipped, transferred or re-exported, directly or
+indirectly, into any country prohibited by the United States Export
+Administration Act and the regulations thereunder or will be used for
+any purposes prohibited by the Act.
+
+Choice Of Law
+
+This license will be governed by the laws in force in the Commonwealth
+of Massachusetts excluding the application of its conflicts of law
+rules.
+
+Your use of the Software indicates your acceptance of these terms and
+conditions.  If you do not agree to these conditions, return the
+Software, documentation, and associated peripherals to the vendor from
+whom the Software was purchased.
+
+
+Copyright (c) 1997-1998, Avid Technology, Inc. and its licensors.  All
+rights reserved.
+		Shrinkwrap License - CD (9/7/95)
+
+

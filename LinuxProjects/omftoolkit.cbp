@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="omftoolkit" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="Linux/Debug/omftoolkit" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="Linux/Release/omftoolkit" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-fexceptions -fPIC" />
+			<Add option="-DPORTKEY_INT64_NATIVE=1" />
+			<Add option="-DPORTKEY_INT64_TYPE=long" />
+			<Add directory="../portinc" />
+			<Add directory="../include" />
+			<Add directory="../kitomfi" />
+			<Add directory="../jpeg" />
+			<Add directory="../bento" />
+		</Compiler>
+		<Unit filename="../avidjpg/AUNC.h" />
+		<Unit filename="../avidjpg/AVR1.h" />
+		<Unit filename="../avidjpg/AVR12.h" />
+		<Unit filename="../avidjpg/AVR1e.h" />
+		<Unit filename="../avidjpg/AVR2.h" />
+		<Unit filename="../avidjpg/AVR25.h" />
+		<Unit filename="../avidjpg/AVR26.h" />
+		<Unit filename="../avidjpg/AVR27.h" />
+		<Unit filename="../avidjpg/AVR2e.h" />
+		<Unit filename="../avidjpg/AVR2m.h" />
+		<Unit filename="../avidjpg/AVR2s.h" />
+		<Unit filename="../avidjpg/AVR3.h" />
+		<Unit filename="../avidjpg/AVR3e.h" />
+		<Unit filename="../avidjpg/AVR3m.h" />
+		<Unit filename="../avidjpg/AVR3s.h" />
+		<Unit filename="../avidjpg/AVR4.h" />
+		<Unit filename="../avidjpg/AVR4e.h" />
+		<Unit filename="../avidjpg/AVR4m.h" />
+		<Unit filename="../avidjpg/AVR4s.h" />
+		<Unit filename="../avidjpg/AVR5.h" />
+		<Unit filename="../avidjpg/AVR5e.h" />
+		<Unit filename="../avidjpg/AVR5m.h" />
+		<Unit filename="../avidjpg/AVR6e.h" />
+		<Unit filename="../avidjpg/AVR6m.h" />
+		<Unit filename="../avidjpg/AVR6s.h" />
+		<Unit filename="../avidjpg/AVR70.h" />
+		<Unit filename="../avidjpg/AVR71.h" />
+		<Unit filename="../avidjpg/AVR75.h" />
+		<Unit filename="../avidjpg/AVR77.h" />
+		<Unit filename="../avidjpg/AVR8s.h" />
+		<Unit filename="../avidjpg/AVR9s.h" />
+		<Unit filename="../avidjpg/AVRJFIF100S.h" />
+		<Unit filename="../avidjpg/AVRJFIF12S.h" />
+		<Unit filename="../avidjpg/AVRJFIF200.h" />
+		<Unit filename="../avidjpg/AVRJFIF200p.h" />
+		<Unit filename="../avidjpg/AVRJFIF20p.h" />
+		<Unit filename="../avidjpg/AVRJFIF25p.h" />
+		<Unit filename="../avidjpg/AVRJFIF300.h" />
+		<Unit filename="../avidjpg/AVRJFIF300p.h" />
+		<Unit filename="../avidjpg/AVRJFIF35.h" />
+		<Unit filename="../avidjpg/AVRJFIF50.h" />
+		<Unit filename="../avidjpg/AVRJFIF50S.h" />
+		<Unit filename="../avidjpg/AVRJFIF50p.h" />
+		<Unit filename="../avidjpg/AVRJFIF70.h" />
+		<Unit filename="../avidjpg/avrPvt.h" />
+		<Unit filename="../avidjpg/avrs.h" />
+		<Unit filename="../avidjpg/omJPED.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../avidjpg/omJPED.h" />
+		<Unit filename="../avidjpg/omcAVR.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../avidjpg/omcAVR.h" />
+		<Unit filename="../avidjpg/omcAvJPED.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../avidjpg/omcAvJPED.h" />
+		<Unit filename="../avidjpg/omcAvidJFIF.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../avidjpg/omcAvidJFIF.h" />
+		<Unit filename="../bento/BufferIO.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/BufferIO.h" />
+		<Unit filename="../bento/CMAPI.h" />
+		<Unit filename="../bento/CMAPIDbg.h" />
+		<Unit filename="../bento/CMAPIEnv.h" />
+		<Unit filename="../bento/CMAPIErr.h" />
+		<Unit filename="../bento/CMAPIIDs.h" />
+		<Unit filename="../bento/CMAPITyp.h" />
+		<Unit filename="../bento/CMCntOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMConfig.h" />
+		<Unit filename="../bento/CMDbgOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMErrOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMHndOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMObjOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMRefOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMSesOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMTPOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMTypes.h" />
+		<Unit filename="../bento/CMVHOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMValOps.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/CMVers.h" />
+		<Unit filename="../bento/Containr.h" />
+		<Unit filename="../bento/DynValus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/DynValus.h" />
+		<Unit filename="../bento/ErrorRpt.h" />
+		<Unit filename="../bento/FreeSpce.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/FreeSpce.h" />
+		<Unit filename="../bento/GlbNames.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/GlbNames.h" />
+		<Unit filename="../bento/Handlers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/Handlers.h" />
+		<Unit filename="../bento/ListMgr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/ListMgr.h" />
+		<Unit filename="../bento/Refs.h" />
+		<Unit filename="../bento/Session.h" />
+		<Unit filename="../bento/SymTbMgr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/SymTbMgr.h" />
+		<Unit filename="../bento/THandlrs.h" />
+		<Unit filename="../bento/TOCEnts.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/TOCEnts.h" />
+		<Unit filename="../bento/TOCIO.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/TOCIO.h" />
+		<Unit filename="../bento/TOCObjs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/TOCObjs.h" />
+		<Unit filename="../bento/Update.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/Update.h" />
+		<Unit filename="../bento/Utility.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/Utility.h" />
+		<Unit filename="../bento/Values.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/Values.h" />
+		<Unit filename="../bento/XCrypt.h" />
+		<Unit filename="../bento/XEmbeded.h" />
+		<Unit filename="../bento/XHandlrs.h" />
+		<Unit filename="../bento/XIndFile.h" />
+		<Unit filename="../bento/XSession.h" />
+		<Unit filename="../bento/XSubValu.h" />
+		<Unit filename="../bento/oldtoc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../bento/oldtoc.h" />
+		<Unit filename="../jpeg/jbsmooth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jcarith.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jccolor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jcdeflts.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jcexpand.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jchuff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jcmaster.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jcmcu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jconfig.h" />
+		<Unit filename="../jpeg/jcpipe.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jcsample.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdarith.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdcolor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jddeflts.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdhuff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdmain.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdmaster.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdmcu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdpipe.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jdsample.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jerror.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jfwddct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jinclude.h" />
+		<Unit filename="../jpeg/jmemdos.h" />
+		<Unit filename="../jpeg/jmemmgr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jmemsys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jmemsys.h" />
+		<Unit filename="../jpeg/jpegdata.h" />
+		<Unit filename="../jpeg/jquant1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jquant2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jrdgif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jrdjfif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jrdppm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jrdrle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jrdtarga.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jrevdct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jutils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jversion.h" />
+		<Unit filename="../jpeg/jwrgif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jwrjfif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jwrppm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jwrrle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../jpeg/jwrtarga.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/OMFAnsiC.h" />
+		<Unit filename="../kitomfi/README.TXT" />
+		<Unit filename="../kitomfi/aiff.h" />
+		<Unit filename="../kitomfi/omAcces.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omCheck.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omCntPvt.h" />
+		<Unit filename="../kitomfi/omCodec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omCodec.h" />
+		<Unit filename="../kitomfi/omCompos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omCvt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omEffect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omErr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omFile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omFndSrc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omIEEE.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omJFIF.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omJPEG.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omJPEG.h" />
+		<Unit filename="../kitomfi/omLocate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omLocate.h" />
+		<Unit filename="../kitomfi/omMedObj.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omMedia.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omMobBld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omMobMgt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omNewFndSrc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omPvt.h" />
+		<Unit filename="../kitomfi/omSearch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omTable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omTable.h" />
+		<Unit filename="../kitomfi/omUtils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcAIFF.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcAIFF.h" />
+		<Unit filename="../kitomfi/omcCDCI.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcCDCI.h" />
+		<Unit filename="../kitomfi/omcJPEG.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcJPEG.h" />
+		<Unit filename="../kitomfi/omcRGBA.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcRGBA.h" />
+		<Unit filename="../kitomfi/omcStd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcStd.h" />
+		<Unit filename="../kitomfi/omcStrm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcStrm.h" />
+		<Unit filename="../kitomfi/omcTIFF.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcTIFF.h" />
+		<Unit filename="../kitomfi/omcWAVE.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omcWAVE.h" />
+		<Unit filename="../kitomfi/omcXlate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omfansic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/omfsess.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/ommobget.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../kitomfi/tiff.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

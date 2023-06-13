@@ -1,0 +1,129 @@
+BUILDPC.TXT    (PC NOTE: open *.TXT files in Visual C++)     
+
+This file is part of the OMF 2.2 distribution, and describes how to
+build the OMF Toolkit for PC/Windows/DOS distributions.  See
+README.TXT for an overview of the OMF Toolkit distribution, contact
+information, etc.
+
+
+========
+CONTENTS
+========
+
+ 0) QuickStart
+ 1) Basic Build/Install Information
+ 2) Testing your Installation
+
+
+0) QuickStart
+--------------
+
+    Unzip the archive: OMFToolkit2.2.zip to unpack the 
+    Toolkit.
+
+    Using Visual Studio 6.0 or later, open the OMFToolkit
+    Workspace in the OMFToolkit/NTProjects directory, then
+    set the active project to OMFToolkit and build the
+    OMFToolkit.dll. Set the active project to 
+    unittest, omfdump, omfinfo2, and other projects to 
+    build the test and example applications.
+
+    Examine some of the output .omf files with omfinfo2, omfDump to
+    validate that a 1.5 and a 2.0 app can run (see 2.1). 
+
+
+1) Basic Build/Install Information
+----------------------------------
+
+1.1 Installing the Software on the PC/Win machine
+
+The OMF Toolkit is shipped electronically or on disk as a 
+pkzip file. When extracted, the newly created root will be
+OMFKT2.2. The first step in the PC/Win installation is to
+extract the source code and and projects from the archive.
+
+1. Create and change directories to a folder on your hard disk where you will 
+   install the Toolkit.
+
+2. Use pkunzip (with the -d option) on the Toolkit disk.
+
+The Toolkit software extracts and copies all of the Toolkit 
+files into the selected folder.
+
+
+1.2 Building the Toolkit with Visual C++
+
+A Visual C++ Version 6.0 workspace is supplied for the Toolkit. You can
+use it to build the OMFToolkit.dll and the unit tests and sample
+applications. The OMFToolkit workspace is in the directory
+
+    OMFToolkit2.2/NTProjects
+
+The dll files and the applications are generated in the directory
+
+    OMFToolkit2.2/NTProjects/Output
+The Toolkit has been tested on the following platforms:
+    PC/Win NT
+    PC/Win 95
+
+The unittest project contains a test harness that invokes a variety of 
+unittests, one after the other, and creates a set of output 1.0 and 
+2.0 OMF files.  The files are verified by the Toolkit's semantic checker,
+and some of the files are verified by other tests.
+
+Conclude the Toolkit build by building the remaining 1.0 and 2.0
+application projects.  The applications and their function are
+described in detail below.
+
+
+2) Testing your Installation
+----------------------------
+
+2.1 Useful applications
+
+You can find 1.5 applications that use the compatibility API in
+the apps1x/ directory--see apps1x/README.TXT.  A set of 2.0 apps are
+in the apps/directory--see apps/README.TXT.  Finally, a set of 2.0
+unit tests are in the unittest/ directory--see unittest/README.TXT.
+Visual C++ 2.0 projects the apps, apps1x and unittest applications 
+are provided with the Toolkit distribution in the top level Toolkit
+directory.
+
+omfinfo is a 1.5 application that gives you basic information about
+the media in an OMF file.  Even though it is written to the 1.5 OMFI
+API, it can open and read both 1.0 and 2.0 files.
+
+omfinfo2, is a 2.0 application that replaces
+the 1.5 omfinfo.  It can open both 1.0 and 2.0 files, and returns
+information about composition mobs, and media (via master mobs) 
+discovered in the OMF file.
+
+omfDump displays a structured text dump of an OMF file (this is the
+2.0 version of the old 1.5 bdump program).  A graphical OMF file
+browser called omfBrowser, is also provided in the Macintosh
+distribution.  Both omfDump and omfBrowser open and read 1.0 and 2.0
+files.
+
+omfCheck is the 2.0 semantic checker.  It supports both 1.0 and 2.0
+files.  
+
+Descriptions of other available applications can be found in the file
+OMFKT2.1.2/apps/README.TXT.
+
+
+2.2 Running the Unittests
+
+To validate your installation, it is recommended to run the entire
+unittest harness once a successful Toolkit build is complete.  If it
+runs without error, your installation has been successful.  The entire
+unittest run will take a few minutes on a 100 Mhz Pentium running
+Windows NT.
+
+Once complete, a set of 1.0 and 2.0 OMF files created by the 2.0
+Toolkit will exist in viscproj, named with a ".omf" extension.  Use the
+applications mentioned above to view and dump these files.
+
+These simple files can also be used to test import functionality into
+your application.  See unittest/README.TXT for a description of the
+various unit tests and the contents of their output OMF files.
+

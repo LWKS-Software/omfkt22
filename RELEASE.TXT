@@ -1,0 +1,359 @@
+ 
+Open Media Framework(R) Interchange Developers' Toolkit
+Version 2.1.2 Release Notes
+-------------------------------------------------------
+
+Customer Assistance
+
+For help installing or using the Toolkit, you can send email
+to the OMF Developers' Desk at omf-request@omfi.org.
+
+
+You can write or fax comments to:
+
+     OMF Developers' Desk
+     Avid Technology, Inc.
+     1925 Andover St.
+     Tewksbury, MA 01876
+
+     Fax: 978-640-0065 Attention: OMF Developers' Desk
+     http://www.omfi.org
+     email: omf-request@omfi.org
+
+To contact the OMF Developer's Desk by phone:
+     From the U.S.A. and Canada, call 800-949-OMFI (800-949-6634).
+     From other countries, call 978-640-3400.
+     
+Leave a message and we will return your call.
+
+Copyright (c) 1997-1998, Avid Technology, Inc.
+
+TABLE OF CONTENTS
+
+     I. OMF 2.1.2 Toolkit Summary
+     II. Acquiring an OMF Vendor ID (IMPORTANT: PLEASE READ)
+     III. Build and Install Changes
+     IV. MODIFICATIONS to the Toolkit API and the 2.1 File Format
+     V. Added Functionality between 2.1 and 2.1.2
+     VI. Bug Fixes between 2.1 and 2.1.2
+     VIII. Known Problems and Solutions
+     VII. The registered codecs (SDII and AVR)
+     VIII.The I/O and memory handlers
+     IX. The omcXlate.c file
+     X. Known Problems and Solutions
+
+I. OMF 2.1.2 Toolkit Summary
+
+     The 2.1.2 Release of the OMF Interchange Developers' Toolkit is a major release.
+     The 2.1.2 OMF Toolkit is the official cross platform implementation of
+     the 2.1 OMF Interchange Specification.
+
+     This release includes the following Toolkit documentation:
+
+     o  OMF Interchange Developers' Toolkit Reference Version 2.1
+        (ftp://ftp.avid.com/pub/omf/doc/2.1/refbk21.pdf) 
+
+     o  OMF Interchange Developers' Toolkit Guide Version 2.1
+        (ftp://ftp.avid.com/pub/omf/doc/2.1/dgde21.pdf)
+
+     In addition, a revised 2.1 version of the Specification and the original
+     1.0 version of the specification are available.
+
+     o  OMF Interchange Specification Version 2.1
+        (ftp://ftp.avid.com/pub/omf/doc/2.1/omfspec21.pdf)
+
+     o  OMF Interchange Specification Version 1.0
+        (ftp://ftp.avid.com/pub/omf/doc/1.0/spec/omfspec10.pdf)
+
+     Comments about the documentation are welcome, please email to 
+     omf-request@omfi.org.
+
+     The 2.0 API has been redesigned from the 1.5 Toolkit API
+     to provide a more robust and flexible set of functionality including:
+
+    * A New API to conveniently support reading and writing compositions
+	* A New Media API to read and write 1.0 and 2.0 media types,
+		as well as source information (tape, film, etc.)
+	* A Plug-in Media Architecture, to easily and transparently support 
+		new media types
+	* Full backward compatibility, including reading and writing
+		1.0 format files, as well as interim support for the
+		the 1.0 API
+	* A Media codec that supports all Avid AVR formats
+
+     Section II describes how to obtain an OMF Vendor ID number.
+     Section III describes changes in the build environment. Section IV 
+     describes API modifications since the 2.1 release of the Toolkit.
+     Sections V and VI describe changes between the 2.1 and 2.1.2 
+     Toolkit.  Section VIII summarizes the outstanding problems and gives workarounds, 
+     where applicable.
+
+II. Acquiring an OMF Vendor ID (IMPORTANT: PLEASE READ)
+
+     All parties who use the OMF Toolkit MUST register with the OMF
+     Developers' Desk to receive an OMF Vendor ID.
+
+     The Vendor ID will be used as the prefix (1st part) of the 3-part mob ID 
+     used by the Toolkit to uniquely identify mobs.  The prefix should
+     be specified as part of the structure passed as the first argument
+     to every omfsBeginSession() call made by an application. 
+     The examples in the unittest directory use
+     0 and 1 as prefix values for illustrative purposes. 
+
+     The prefix field in a mob ID will help to designate the creator of mobs
+     within an OMF file.
+
+     If desired, you may request multiple vendor IDs to correspond to your
+     various applications.  All IDs will be registered with the OMF
+     Developers' Desk.
+	
+III. Build and Install Changes
+
+     SUPPORTED PLATFORMS
+
+     The 2.0 Toolkit software distribution is supported on the following
+     platforms, operating systems and compilers:
+
+		* SGI IRIX 5.3 (UNIX)
+		* SGI IRIX 6.2 (UNIX)
+		* SunOS 4.1.3 (UNIX)
+		* Macintosh PowerMac Metrowerks Code Warrior 8, 9, 10, 11
+		* Windows NT 3.5.1, Visual C++ 2.0
+		* Windows 95, Visual C++ 2.0
+
+     Though not officially supported, the Toolkit has also been built by
+     application developers on NeXTStep, IBM AIX, Linux, Solaris and HPUX 9.x.
+
+     Some customers have had problems converting our Code Warrior projects
+     forward to CW10.  If you experience problems with particular files not
+     compiling because of an 'illegal filetype', try removing the file from
+     the converted project, and then add the file back into the file list 
+     for the library or exectuable.
+
+     For more detailed information about building the Toolkit on each
+     of these platforms, please consult the following:
+        BUILDUNIX.TXT
+        BUILDMAC.TXT
+		BUILDPC.TXT
+     (Note that only one BUILD*.TXT document is provided with a particular
+     archive, i.e. BUILDUNIX.TXT is only found in the unix archive file.)
+
+     Changes since the 2.1 build environment include the following:
+
+    1) Missing Macintosh (Metrowerks) and PC (Visual C++) projects
+
+        Metrowerks and Visual C++  projects are not provided for all 
+	applications in the apps directory (including: Raw2OMF, 
+	omfACompPlay and omfPatch).  Simply use one of the other 
+	projects as a guideline.  Note that on the PC, omfPatch should
+	be built with the symbol OMFI_ENABLE_SEMCHECK defined in the 
+	project.
+
+    2) Linux and Solaris support
+
+        Build support for the Solaris and Linux operating systems have been
+        added to the Toolkit.  These platforms are not officially supported
+        by the OMF Developers' Desk, but the build environment is added
+        for the convenience of Solaris and Linux developers.   (This is now provided, 
+	as is, just like the HP, AIX and NeXTStep targets, even though we are
+	unable to test this.)
+
+    3) Purify shows "clean" Toolkit.
+
+        A run of the Toolkit Unittest through Pure Atria's Purify turned 
+	up NO memory leaks, bounds problems on the heap or stack, no cases
+    where unallocated memory was freed, etc.
+
+
+IV. MODIFICATIONS to the Toolkit API and the 2.0 File Format
+
+    1) FILE FORMAT CHANGES (unchanged from 2.1)
+
+    2) Removed Functions
+
+	No functions have been removed since 2.1.
+
+    3) Functions with Modified Signatures
+
+	No functions signatures have been modified since 2.1.
+
+    4) New Functions
+	Added omfsAppendRawFile (see below).
+
+V. Added Functionality between 2.1 and 2.1.2
+
+    1) omfsAppendRawFile
+	Added omfsAppendRawFile  to allow appending OMF data to an existing
+	file.  This allows a WAVE, AIFC, or TIFF file to be converted into
+	an OMF file in-place.
+
+    2) omfAPlay
+	* The application to play audio was extended to run under Windows/NT
+	  Additional versions of these tools will be available in the future.
+
+    3) Added new codecs
+	Added the codecs omcAvJPED.c/omJPED.c to read Avid native media.
+	Updated the CDCI object with two new fields to support padding
+	around the frames.  The #define AVID_CODEC_SUPPORT must be defined
+	in the apps(it is defined by default) in order  to use the new
+	codecs, which are found in the avidjpg directory.
+
+    4) omcXlate.c now handles RGB <-> YUV/YCbCr conversion for both 4:4:4
+	(YCbCr) and 4:2:2 (CbYCrY).  This allows viewing of YUV data with
+	omfVPlay.  The 4:2:2 cositing is currently fixed to "cositing".
+
+    5) Field formats may now be changed on write for most codecs.
+	
+    6) More handlers
+	This is not new, but many have not noticed it.  A new handler
+	omfMemFile.c was introduced in the 2.1 toolkit, which reads
+	the entire file into memory (if possible) before importing.
+
+	In machines with virtual memory this is a LARGE speed boost.  
+	
+VI. Bug Fixes between 2.1 and 2.1.2
+
+
+    3) Substantial bug fixes
+
+	*	If duplicate mob IDs exist, then the mob iterator will return
+		both mobs.  This could cause infinite loops.
+
+	*	The findSource/searchSource and composition iterators
+		had problems when the master track ID didn't match the
+		file mob track ID.
+
+	*	The setFrame calls did not handle freeze frames correctly.
+
+    4) Miscellaneous bug fixes
+
+	*	New allows a missing component usage code.  This field is
+		optional, but was being trreated as required.
+
+4VII. The registered codecs (SDII and AVR)
+
+There are two codecs which come with the OMF toolkit, but are not part of the
+required set.  These are:
+
+The SDII codec
+--------------
+Found in the codecs directory, codec allows reading sound-designer II
+files refered to from OMF compositions.  Currently allows only reading, and only works
+on the Macintosh platform.
+
+In order to use this codec, link in omcStd.c and make the following call:
+	 	omfmRegisterCodec(session, omfCodecSD2, kOMFRegisterLinked);
+
+The AVR codec
+--------------
+Found in the avidjpg directory, this codec sets up the JPEG tables, frame sizes, etc...
+and uses the TIFF codec in order to write data in one of the Avid AVR resolutions.
+
+In order to use this codec, link in omcAVR.c and
+make the following call:
+  		omfmRegisterCodec(sessionPtr, omfCodecAJPG,kOMFRegisterLinked);
+  		
+The individual AVR numbers are supported as codec varieties.  The format of the
+AVR variety must be one of:
+		'<product>:AVR<avr>:<signalType>' or
+		'AVR<avr>:<signalType>' or
+		'AVR<avr>'
+		
+		For example "MC:ACR77:NTSC" or "AVR75".
+
+There are new calls to iterate over the codec varieties.  These calls require
+an open session with omfmInit() called, and all extra codecs loaded.  Code to
+iterate over all of the AVR varieties can be found in the "usage" routine of
+"MkAVR.c" which is found in the apps directory.
+
+VIII.The I/O and memory handlers
+
+IO and memory handlers are intended to isolate the toolkit and Bento from the
+unerlying operating system for I/O and memory alloc/free calls.  The files
+supplied and described below are examples, and ir required, should be rewritten
+using local operating system calls.  In particular, omfansic.c is based upon ANSI
+calls, and will run anywhere, but does not support the truncate() operation, which
+may cause OMF files to grow when modified.
+
+The operations which need to be rewritten when porting a handler all end in
+"_Handler".  All other calls are private to the handler.
+
+There are three I/O handlers supplied with the toolkit.  These are:
+
+omfansic.c
+----------
+This handler normally uses all ANSI calls for maximum portability,
+but can be configured to use SGI calls by defining PORT_FILESYS_40BIT.  Using the
+ANSI calls, files are limited to 2^32 bytes.  Using the SGI calls, files are limited
+to 2^64 bytes.
+
+Using the ANSI handler, you would pass a string into the first argument of omfsOpen or
+omfsModify calls (the fileHandleType parameter).
+
+IF USE_CACHE is defined, then a 3-element cache buffer is created in order to
+speed up reads.
+
+If USE_CACHE is NOT defined, then the handler opens up two separate streams when reading
+the differnt parts of an OMF file.  On some systems this speeds performance by reducing seeks.
+
+omfmacio.c
+----------
+This handler uses native Macintosh file system calls.
+
+Using the MacIO handler, you would pass a pointer to either an SFReply structure,
+or a FSSpec structure as the first argument of omfsOpen/ModifyFile calls (the
+fileHandleType parameter).  If OMFI_MACFSSPEC_STREAM is defined, then a pointer to
+an FSSpec is expected, otherwise a pointer to an SFReply structure is expected. 
+
+This handler does handle the flush operation.
+
+omfMemFile.c
+------------
+omfMemfile.c is a contributed handler (not from the developers desk) which uses ANSI
+calls to read the entire file into memory at once, and then allows read/write operations
+against the memory version, possibly updating the file when it is closed.
+
+This handler will give the greatest speed advantage if a lot of memory is available,
+but is not recommended for files containing media.
+
+omfsess.c
+---------
+
+This is the standard memory allocation handler used by the toolkit, which uses a fixed size
+allocator for the smaller blocks in order to increase performance.  It may be replaced
+with a file which uses memory allocation calls for the host system.  The operations which
+need to be rewritten when porting a handler all end in "_Handler".  All other calls are
+private to the handler.
+ 
+IX.	The omcXlate.c file
+
+The file omfXlate.c contains all of the code used to translate between file and in-memory
+formats for video and audio.  The version of the code supplied with the toolkit
+is limited, but should be useful in a lot of cases.  If a case is not handled (such as
+44.1kHz to 48kHz), then an OMF_ERR_TRANSLATE error will be returned.
+
+This file is intended to be modified with routines better suited to your intended usage
+(for example adding 44.1->48kHz), and this is why it is in a separate file.
+
+X. Known Problems and Solutions
+
+     1) Shared Library Support incomplete
+
+        The Toolkit build is still missing shared library support on
+        the SGI.
+
+     2) 1.0 Compressed Video Format (TIFF) -> YUV not supported
+
+        Uncompressing compressed 1.0 TIFF video media to YUV data is
+        currently not supported.  TIFF can be uncompressed to RGB.
+        
+Open problem reports (SPR's)
+
+SPR		Problem
+---		------------------------------
+309		omfmAudioMediaCreate doesn't allow you create a raw 2 channel audio file
+336		omcXLate.c fails on 10-bit RGBA.  This should at least be supported if
+		there is a 2-bit filler field specified.
+344		Can't read JPEG tables from JFIF streams
+345		Can't read JPEG tables from MCX/NT streams
+348		open failure causes segfault under AIX.  This may be fixed.

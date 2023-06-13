@@ -1,0 +1,53 @@
+Register to download the OMF(R) 2.1.2 Toolkit
+
+The Open Media Framework(R) 2.1.2 Toolkit is available free of 
+charge. If you have any questions please contact the OMF 
+Developers' Desk at omf-request@omfi.org 
+
+Please register. 
+
+If you have already registered you may fill in only the name and email
+fields. If this is your first time downloading the OMF Toolkit, please
+register so we can notify you of updates and other important OMF
+information, and also so we can be sure you are assigned unique UIDs
+for use in the Toolkit creation functions.
+
+OMF Toolkit Registration
+------------------------
+Send this to omf-request@omfi.org 
+(or by fax to (978) 640-9768).
+
+First Name: 
+Last Name: 
+Email Address: 
+
+I already registered (if checked, following fields are optional) [ ]
+
+Company/Organization: 
+Street Address: 
+City: 
+State/Province: 
+Zip/Postal Code: 
+Country: 
+Phone, Extension: 
+Fax: 
+
+Relationship to OMF: 
+  [ ] Developer; 
+  [ ] End-User;  
+  [ ] Other
+
+Application Type (pick 1 or more): 
+  [ ] Non-Linear Editing
+  [ ] Digital Audio Workstation
+  [ ] Graphics/Animation/CG
+  [ ] Database/Server/Asset Management
+  [ ] Other
+
+Company Home Page URL (optional): 
+
+Your Title/Job (optional): 
+
+Comments: 
+
+

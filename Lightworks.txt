@@ -1,0 +1,19 @@
+Modifications to OMF:-
+
+1. File:	avidjpg\avrPvt.h	Set MAX_NUM_AVRS to 43
+2. File:	kitomfi\omeffect.c	Store denominator correctly (for varispeed effects)
+3. File:	include\omtypes.h	Added kRoundNormally to omfRounding_t
+4. File:	kitomfi\omFndSrc.c	FindNextMob and omfiMobFindSourceRecurs modified to use kRoundNormally for edit rate (instead of truncation)
+5. File:	kitomfi\omMobGet.c	Modifiy omfiConvertEditRate to accept kRoundNormally
+6. File:	kitomfi\omfansic.c	DTX mods - N/A external to LWKS
+7. File:	portinc\portvars.h	Compiler message to show using __int64
+8. File:	kitomfi\omfFile.c	Fix closing of files
+9. File: apps\omfinfo.c  add 'KFindEffectSrc1' argument to all calls to 'omfiMobSearchSource' (otherwise crash) - MC 9-Dec-03
+10.File: kitomfi\ommedobj.c     same as above
+11.File: kitomfi\ommedia.c      same as above
+
+Change long to int (since long becomes 64 bits in size on Linux64)
+Use va_copy on Linux64 (instead of list=other notation)
+Change int to int64 in args to cmSetImmValueBytes() (to avoid pointer -> int32 cast)
+
+
