@@ -369,7 +369,6 @@ CMErrorString CM_FIXEDARGS CMVGetErrorString(CMErrorString errorString, CMSize32
                                              CMErrorNbr errorNumber, va_list inserts)
 {
   char    *msgStr, msg[MaxMsgLen];
-  char    tmpStr[15];
   Boolean gotInserts = true;
 
   #define TheErrorList  switch (errorNumber) {
@@ -522,7 +521,7 @@ CMErrorString CM_FIXEDARGS CMVGetErrorString(CMErrorString errorString, CMSize32
     e1(CM_err_NoRefShadowList,  "Cannot allocate space to record reference in container \"^0\"");
     e1(CM_err_CRSwap,         	"Invalid global name (file \"^0\" possibly transfered as text at some point)");
   /*----------------------------------------------------------------------------------*/
-  EndOfList(strcat("Undefined error message for error #", cmltostr(errorNumber, 1, false, tmpStr)));
+  EndOfList("Undefined error message");
 
   if (gotInserts)
     CMVAddMsgInserts(msg, maxLength, inserts);

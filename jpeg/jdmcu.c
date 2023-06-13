@@ -139,8 +139,9 @@ reverse_DCT (decompress_info_ptr cinfo,
 	 */
 	{ register JSAMPROW elemptr;
 	  register DCTELEM *localblkptr = block;
-	  register JSAMPLE *range_limit = cinfo->sample_range_limit +
-						CENTERJSAMPLE;
+	  
+	  //register JSAMPLE *range_limit = cinfo->sample_range_limit + CENTERJSAMPLE;
+
 #if 1 || DCTSIZE != 8  /* We always want this variable now. */
 	  register int elemc;
 #endif
