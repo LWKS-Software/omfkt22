@@ -212,7 +212,7 @@ CMRefCon CM_FIXEDARGS createRefConForMyHandlers(CMSession sessionData,
     return (NULL);
   }
 
-  strcpy(p->pathname, pathname);                /* save pathname for the open handler   */
+  strcpy( (char*) p->pathname, pathname);                /* save pathname for the open handler   */
   p->traceFile     = NULL;                      /* set only by setHandlersTrace()       */
   p->tracing       = 0;                         /* ...ditto                             */
   p->haveSize      = 0;                         /* no file size known yet               */

@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
 
 #if PORT_SYS_MAC && !defined(MAC_DRAG_DROP)
 	argc = ccommand(&argv); 
-	strcpy(argv[0],"omfDump");
+	strcpy( (char*) argv[0],"omfDump");
 	MacInit();  
 #if OMFI_MACSF_STREAM
 	where.h = 20;

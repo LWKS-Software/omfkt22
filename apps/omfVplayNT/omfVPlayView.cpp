@@ -216,7 +216,7 @@ void COmfVplayView::PlayOMF(omfObject_t	masterMob)
 			CHECK(omfiMobGetNumTracks(filePtr, masterMob, &numTracks));
 			CHECK(omfiIteratorAlloc(filePtr, &trackIter));
 			searchCrit.searchTag =	kByDatakind;
-			strcpy(searchCrit.tags.datakind, PICTUREKIND);
+			strcpy( (char*) searchCrit.tags.datakind, PICTUREKIND);
 			for(long n = 1; n <= numTracks; n++)
 				{
 			

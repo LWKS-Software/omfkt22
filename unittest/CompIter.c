@@ -394,7 +394,7 @@ int main(int argc, char *argv[])
 
 						if (srcError == OM_ERR_FILL_FOUND)
 						{
-							strcpy(tapeNameBuf, "FILL FOUND");
+							strcpy( (char*) tapeNameBuf, "FILL FOUND");
 						}
 						else if (srcError != OM_ERR_NONE)
 						{

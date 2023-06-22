@@ -386,7 +386,7 @@ static omfErr_t CreateCompositionMob(omfHdl_t    fileHdl,
 	edgecode.startFrame = 0;
 	edgecode.filmKind = kFt35MM;
 	edgecode.codeFormat = kEtKeycode;
-	strcpy(edgecode.header, "DevDesk");
+	strcpy( (char*) edgecode.header, "DevDesk");
 	CHECK(omfiEdgecodeNew(fileHdl, clipLen60, edgecode, &ecClip));
 	trackID = 5;
 	CHECK(omfiMobAppendNewTrack(fileHdl, *compMob, editRate, ecClip,

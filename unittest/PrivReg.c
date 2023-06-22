@@ -255,7 +255,7 @@ int main(int argc, char *argv[])
 	  CHECK(omfsWriteCharSetType(fileHdl, poohMob, OMCharSetThing, 
 					   1));
 	  memset(bunchOfBytes, 0, sizeof(bunchOfBytes));
-	  strcpy(bunchOfBytes, "A Pooh is a wonderful thing...\n");
+	  strcpy( (char*) bunchOfBytes, "A Pooh is a wonderful thing...\n");
 	  CHECK(omfsWriteVarLenBytes(fileHdl, poohMob, OMBytesThing, 
 				     zeroPos, /* offset */
 				     sizeof(bunchOfBytes),

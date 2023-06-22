@@ -188,7 +188,7 @@ void main(int argc, char *argv[])
 			CHECK(omfiMobGetNumTracks(filePtr, masterMob, &numTracks));
 			CHECK(omfiIteratorAlloc(filePtr, &trackIter));
 			searchCrit.searchTag = kByDatakind;
-			strcpy(searchCrit.tags.datakind, PICTUREKIND);
+			strcpy( (char*) searchCrit.tags.datakind, PICTUREKIND);
 			for(n = 1; n <= numTracks; n++)
 			{
 			

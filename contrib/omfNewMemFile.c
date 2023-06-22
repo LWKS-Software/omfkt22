@@ -274,11 +274,11 @@ CMRefCon CM_FIXEDARGS createRefConForMyHandlers(CMSession sessionData,
 	}
 	if (pMem->streamType == kOmfStreamMemory)
 	{
-		strcpy(p->pathname, "omf Memory File");	/* save pathname for the open handler   */
+		strcpy( (char*) p->pathname, "omf Memory File");	/* save pathname for the open handler   */
 	}
 	else if (pMem->streamType == kOmfStreamFile)
 	{
-		strcpy(p->pathname, pMem->streamPtr);
+		strcpy( (char*) p->pathname, pMem->streamPtr);
 	}
 	else
 		return(NULL);

@@ -103,7 +103,7 @@ char *cmltostr(int  n, short width, Boolean hexConversion, char *s)
   /* this conversion, t will point to the first digit of the string.                    */
   
   if (n == 0)                             /* handle 0 specially                         */
-    strcpy(t = tmpStr, "0");
+    strcpy( (char*) t = tmpStr, "0");
   else if (hexConversion) {               /* converting to hex...                       */
     for (t = tmpStr, d = (char *)&n, leading0s = true, i = sizeof(int ); i; i--, d++) {
       c1 = "0123456789ABCDEF"[(*d >> 4) & 0x0F];
@@ -164,7 +164,7 @@ char *cmltostr(int  n, short width, Boolean hexConversion, char *s)
     while (padding--) *s++ = filler;        /* ...put in the padding                    */
   }
   
-  strcpy(s, t);                             /* copy the digits to the output            */
+  strcpy( (char*) s, t);                             /* copy the digits to the output            */
   return (s0);
 }
                              

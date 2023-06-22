@@ -3186,7 +3186,7 @@ omfErr_t omfeSMPTEVideoWipeNew(
 			 * the incoming and outgoing clips.  So, ignore the 
 			 * inputSegmentA and inputSegmentB arguments.
 			 */
-		    strcpy(effectID1x, "Wipe:SMPTE:");
+		    strcpy( (char*) effectID1x, "Wipe:SMPTE:");
 		    itoaLocal(wipeNumber, 4, wipeNumString);
 			/* NOTE: Report error if wipeNumString is NULL? */
 		    strcat(effectID1x, wipeNumString);

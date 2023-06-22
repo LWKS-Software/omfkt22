@@ -167,9 +167,9 @@ static void CM_NEAR processOptions(int argc, char *argv[])
 									exit(EXIT_FAILURE);
 			}
 		else if (*filename == 0)
-			strcpy(filename, arg);
+			strcpy( (char*) filename, arg);
 		else if (*dataFilename == 0)
-			strcpy(dataFilename, arg);
+			strcpy( (char*) dataFilename, arg);
 		else {
 			display(stderr, "### Usage: %s %s\n"
 											"###        Too many filenames specified\n", argv[0], CmdLineOptionSyntax);
@@ -214,8 +214,8 @@ static void CM_NEAR doTests(void)
 	CMSession			 session;
 	unsigned char  buffer[256];
 
-	if (*filename == 0) strcpy(filename, "IndFCont"         );
-	if (*dataFilename == 0) strcpy(dataFilename, "DataFile");
+	if (*filename == 0) strcpy( (char*) filename, "IndFCont"         );
+	if (*dataFilename == 0) strcpy( (char*) dataFilename, "DataFile");
 	
 	session = CMStartSession(sessionRoutinesMetahandler, NULL);
 	CMDebugging(session, 256, dbgFile, 1);

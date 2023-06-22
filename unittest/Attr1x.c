@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 	  attrKind = AK_STRING;
 	  check(OMPutATTBKind(anATTB, &attrKind));
 	  check(OMPutATTBName(anATTB, "A String attribute"));
-	  strcpy(stringValue, "A String");
+	  strcpy( (char*) stringValue, "A String");
 	  check(OMPutATTBStringAttribute(anATTB, stringValue));
 	  check(OMPutNthATTRAttrRef(anATTR, &anATTB, 2));
 

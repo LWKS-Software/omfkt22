@@ -3651,7 +3651,7 @@ static omfErr_t UpdateLocalCLSD(
 									 superclassID));
 			 }
 			else
-			  strcpy(superclassID, OMClassNone);
+			  strcpy( (char*) superclassID, OMClassNone);
 
 			CHECK(omfsTableClassIDLookup(table, classID,
 												  sizeof(superEntry),

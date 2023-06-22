@@ -178,7 +178,7 @@ BY ANY OTHER PARTY.
 #define strchr index
 #else
 #ifdef VMS
-	extern char *strcat(), *strchr(), *strcpy(), *strupr();
+	extern char *strcat(), *strchr(), *strcpy( (char*) ), *strupr();
 	extern int strcmp(), strlen(), strncmp();
 #else
 #include <string.h>

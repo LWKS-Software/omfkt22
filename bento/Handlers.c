@@ -102,7 +102,7 @@ MetaHandlerPtr cmDefineMetaHandler(CMMetaHandler metaHandler,
   MetaHandlerPtr h, newMetaHandler;
   
   if ((newMetaHandler = (MetaHandlerPtr)SessionMalloc(NULL, sizeof(MetaHandler) + strlen((char *)typeName))) != NULL) {
-    strcpy((char *)newMetaHandler->typeName, (char *)typeName); /* fill in new entry    */
+    strcpy( (char*) (char *)newMetaHandler->typeName, (char *)typeName); /* fill in new entry    */
     newMetaHandler->metaHandler = metaHandler;
     
     h = (MetaHandlerPtr)cmEnterSymbol(newMetaHandler, (void **)&SessionMetaHandlerTable, dup, compare);
@@ -147,7 +147,7 @@ MetaHandlerPtr cmLookupMetaHandler(const unsigned char *typeName,
     MetaHandlerPtr tmpMetaHandler;
     
 	if ((tmpMetaHandler = (MetaHandlerPtr)SessionMalloc(NULL, sizeof(MetaHandler) + strlen((char *)typeName))) != NULL) {
-		strcpy((char *)tmpMetaHandler->typeName, (char *)typeName); /* fill in tmp entry    */
+		strcpy( (char*) (char *)tmpMetaHandler->typeName, (char *)typeName); /* fill in tmp entry    */
 		h = (MetaHandlerPtr)cmLookupSymbol(tmpMetaHandler, SessionMetaHandlerTable, compare);
 		SessionFree(NULL, tmpMetaHandler);                                /* remove tmp entry     */
 		sessionData->success = true;                                /* indicate malloc is ok*/

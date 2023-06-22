@@ -309,9 +309,9 @@ static omfErr_t PrintTimecode(
 		{
 			CHECK(omfsReadString(file, object, OMCPNTEffectID, tranName, sizeof(tranName)));
 			if(strcmp(tranName, "Blend:Dissolve") == 0)
-				strcpy(eventType, "D");
+				strcpy( (char*) eventType, "D");
 			else
-				strcpy(eventType, "T");
+				strcpy( (char*) eventType, "T");
 		}	
 	  	else
 	  	{
@@ -321,18 +321,18 @@ static omfErr_t PrintTimecode(
 				CHECK(omfsReadObjRef(file, effect, OMEFFEEffectKind, &effDefine));
 				CHECK(omfsReadUniqueName(file, effDefine, OMEDEFEffectID, tranName, sizeof(tranName)));
 				if(strcmp(tranName, "omfi:effect:SimpleVideoDissolve") == 0)
-					strcpy(eventType, "D");
+					strcpy( (char*) eventType, "D");
 				else if(strcmp(tranName, "omfi:effect:SimpleMonoAudioDissolve") == 0)
-					strcpy(eventType, "D");
+					strcpy( (char*) eventType, "D");
 				else
-					strcpy(eventType, "T");
+					strcpy( (char*) eventType, "T");
 			}
 			else
-				strcpy(eventType, "T");
+				strcpy( (char*) eventType, "T");
 	  	}
 	  }
 	  else
-		strcpy(eventType, "C");
+		strcpy( (char*) eventType, "C");
 
 	  printf("%s  %s %s   %s %s  '%s'\n",
 			 eventType,
@@ -450,10 +450,10 @@ static omfErr_t traverseMob(omfHdl_t fileHdl, omfMobObj_t compMob)
 				srcRate = foundSource.editrate;
 				while (srcError != OM_ERR_NO_MORE_OBJECTS)
 				{
-					strcpy(srcStartTC, "00:00:00:00");
-					strcpy(srcEndTC, "00:00:00:00");
-					strcpy(destStartTC, "00:00:00:00");
-					strcpy(destEndTC, "00:00:00:00");
+					strcpy( (char*) srcStartTC, "00:00:00:00");
+					strcpy( (char*) srcEndTC, "00:00:00:00");
+					strcpy( (char*) destStartTC, "00:00:00:00");
+					strcpy( (char*) destEndTC, "00:00:00:00");
 
 					if(srcError == OM_ERR_PARSE_EFFECT_AMBIGUOUS)
 					{
@@ -493,7 +493,7 @@ static omfErr_t traverseMob(omfHdl_t fileHdl, omfMobObj_t compMob)
 
 					if (srcError == OM_ERR_FILL_FOUND)
 					{
-						strcpy(tapeNameBuf, "FILL FOUND");
+						strcpy( (char*) tapeNameBuf, "FILL FOUND");
 					}
 					else if (srcError != OM_ERR_NONE)
 					{

@@ -674,7 +674,7 @@ static omfErr_t processComponent(omfHdl_t infile,
 			CHECK(omfiComponentGetInfo(infile, incpnt, &datakind, &length));
 			CHECK(omfsReadString(infile, incpnt, OMCPNTEffectID, effectID1x, 
 								 OMUNIQUENAME_SIZE));
-			strcpy(effectID, "omfi:effect:");
+			strcpy( (char*) effectID, "omfi:effect:");
 			strcat(effectID, effectID1x);
 			CHECK(omfiEffectDefNew(outfile, effectID, NULL, NULL, NULL,
 								   NOT_TIMEWARP, &effectDef));
@@ -696,7 +696,7 @@ static omfErr_t processComponent(omfHdl_t infile,
 			CHECK(omfsCvtInt32toInt64(cutPoint32, &cutPoint));
 			CHECK(omfsReadString(infile, incpnt, OMCPNTEffectID, effectID1x, 
 								 OMUNIQUENAME_SIZE));
-			strcpy(effectID, "omfi:effect:");
+			strcpy( (char*) effectID, "omfi:effect:");
 			strcat(effectID, effectID1x);
 			CHECK(omfiEffectDefNew(outfile, effectID, NULL, NULL, NULL,
 								   NOT_TIMEWARP, &effectDef));

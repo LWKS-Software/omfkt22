@@ -429,7 +429,7 @@ omfErr_t omfmMediaCreate(
 					*variety = '\0';
 					variety++;			/* Skip over the separator */
 					media->codecVariety = (char*)omOptMalloc(file, strlen(variety)+1);
-					strcpy(media->codecVariety, variety);
+					strcpy( (char*) media->codecVariety, variety);
 				}
 				codecID = (omfCodecID_t)codecIDString;
 				omfsTableLookupBlock(file->session->codecID, codecID, 
@@ -638,7 +638,7 @@ omfErr_t omfmMediaMultiCreate(
 						*variety = '\0';
 						variety++;			/* Skip over the separator */
 						media->codecVariety = (char*)omOptMalloc(file, strlen(variety)+1);
-						strcpy(media->codecVariety, variety);
+						strcpy( (char*) media->codecVariety, variety);
 					}
 					CodecID = (omfCodecID_t)codecIDString;
 					omfsTableLookupBlock(file->session->codecID, CodecID, 
@@ -4476,7 +4476,7 @@ omfErr_t DisposeCodecPersist(omfSessionHdl_t sess)
 				codec_table.persist =	iter.valuePtr.persist;
 				codec_table.rev =	iter.valuePtr.rev;
 				codec_table.type =	iter.valuePtr.type;
-				strcpy(codec_table.dataKindNameList, iter.valuePtr.dataKindNameList);
+				strcpy( (char*) codec_table.dataKindNameList, iter.valuePtr.dataKindNameList);
 				codec_table.minFileRev =	iter.valuePtr.minFileRev;
 				codec_table.maxFileRev =	iter.valuePtr.maxFileRev;
 				codec_table.maxFileRevIsValid =	iter.valuePtr.maxFileRevIsValid;

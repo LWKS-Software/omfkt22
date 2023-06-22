@@ -1018,9 +1018,9 @@ omfErr_t omfsTimecodeToString(
 		}
 
 	  if (timeCode.drop == kTcDrop)
-		strcpy(tcString, "00;00;00;00");
+		strcpy( (char*) tcString, "00;00;00;00");
 	  else 
-		strcpy(tcString, "00:00:00:00");
+		strcpy( (char*) tcString, "00:00:00:00");
 
 	  CHECK(OffsetToTimecode(timeCode.startFrame, timeCode.fps, timeCode.drop, &hours, 
 							  &minutes, &seconds, &frames));

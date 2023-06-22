@@ -193,7 +193,7 @@ char CM_PTR * CM_FIXEDARGS CMVAddMsgInserts(char CM_PTR *msgString, CMSize32 max
 
   VA_COPY( inserts, inserts0 );
 
-  src = strcpy(msgString0, (dst = msgString));
+  src = strcpy( (char*) msgString0, (dst = msgString));
 
   while (((Boolean)(c = *src++)) && cnt > 0) {/* scan src buffer for "^n"s...           */
     if (c != '^') {                           /* if we don't hace an "^n"...            */
@@ -376,7 +376,7 @@ CMErrorString CM_FIXEDARGS CMVGetErrorString(CMErrorString errorString, CMSize32
   #define e1(n, s)        case n:  msgStr = (char *)s; break
   #define EndOfList(s)    default: msgStr = (char *)s; gotInserts = false; break;\
                         }                                                        \
-                        strcpy((char *)msg, (char *)msgStr);
+                        strcpy( (char*) (char *)msg, (char *)msgStr);
 
   /* To define a new error number and message, use the macro e1(n, s) if the string s   */
   /* contains inserts.  Use e0(n, s) if there are no inserts.  DON'T FORGET TO UPDATE   */
@@ -527,7 +527,7 @@ CMErrorString CM_FIXEDARGS CMVGetErrorString(CMErrorString errorString, CMSize32
     CMVAddMsgInserts(msg, maxLength, inserts);
 
   if ((CMSize32)strlen(msg) <= maxLength)
-    strcpy((char *)errorString, (char *)msg);
+    strcpy( (char*) (char *)errorString, (char *)msg);
   else {
     strncpy((char *)errorString, (char *)msg, (int)maxLength);
     *(errorString + maxLength) = '\0';

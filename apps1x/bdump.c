@@ -751,7 +751,7 @@ static void DumpUsageCode(short tab_level, UsageCodeType uc)
 
 {
 
-  strcpy(outstr, "Usage Code: ");
+  strcpy( (char*) outstr, "Usage Code: ");
 
   switch (uc)
     {
@@ -868,12 +868,12 @@ static void DumpTime(short tab_level, TimeStamp time)
 #endif
 
   if (time.IsGMT)
-    strcpy(gmt, "(GMT-based)");
+    strcpy( (char*) gmt, "(GMT-based)");
   else
-    strcpy(gmt, "(Unknown timezone)");
+    strcpy( (char*) gmt, "(Unknown timezone)");
 
 #ifdef unix
-  strcpy(timestr, ctime((const time_t *)&(time.TimeVal)));
+  strcpy( (char*) timestr, ctime((const time_t *)&(time.TimeVal)));
   timestr[strlen(timestr)-1] = 0;
   sprintf(outstr, "Time : %s %s", timestr, gmt);
 #else
@@ -1080,17 +1080,17 @@ static void DumpMOBIndex(short tab_level, OMObject obj, indexType Index)
   switch (Index)
     {
     case LMOB:
-      strcpy(mdesc,"Composition Mobs");
+      strcpy( (char*) mdesc,"Composition Mobs");
       prop = OMCompositionMobs;
       break;
 
     case PMOB:
-      strcpy(mdesc,"Source Mobs");
+      strcpy( (char*) mdesc,"Source Mobs");
       prop = OMSourceMobs;
       break;
 
     case MDAT:
-      strcpy(mdesc,"Media Data Objects");
+      strcpy( (char*) mdesc,"Media Data Objects");
       prop = OMMediaData;
       break;
 

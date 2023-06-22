@@ -293,7 +293,7 @@ int main(int argc, char *argv[])
 		searchCrit.tags.mobKind = kCompMob;
 		CHECK(omfiGetNextMob(mobIter, &searchCrit, &mob));
 		/* NOTE: Print create/modified times */
-		strcpy(name, "\0");
+		strcpy( (char*) name, "\0");
 		omfError = omfiMobGetInfo(fileHdl, mob, &mobID,
 					  NAMESIZE, name,
 					  &lastModified, &createTime);
@@ -333,7 +333,7 @@ int main(int argc, char *argv[])
 		  {
 		    CHECK(omfiMobGetNextTrack(trackIter, mob, NULL, &track));
 		    /* NOTE: Also get origin, etc.? */
-		    strcpy(name, "\0");
+		    strcpy( (char*) name, "\0");
 		    omfError = omfiTrackGetInfo(fileHdl, mob, track, &editRate,
 						NAMESIZE, name,
 						NULL, &trackID, &segment);
@@ -417,7 +417,7 @@ int main(int argc, char *argv[])
 		searchCrit.tags.mobKind = kMasterMob;
 		omfError = omfiGetNextMob(mediaIter, &searchCrit, &mob);
 		ContinueOnOMFError(omfError, "Skipping media object");
-		strcpy(name, "\0");
+		strcpy( (char*) name, "\0");
 		CHECK(omfiMobGetInfo(fileHdl, mob, &mobID,
 				     NAMESIZE, name,
 				     &lastModified, &createTime));
@@ -447,7 +447,7 @@ int main(int argc, char *argv[])
 		while (trackLoop > 0)
 		  {
 		    CHECK(omfiMobGetNextTrack(trackIter, mob, NULL, &track));
-		    strcpy(name, "\0");
+		    strcpy( (char*) name, "\0");
 		    omfError = omfiTrackGetInfo(fileHdl, mob, track, &editRate,
 						NAMESIZE, name,
 						NULL, &trackID, &segment);
@@ -609,7 +609,7 @@ int main(int argc, char *argv[])
 		searchCrit.searchTag = kByMobKind;
 		searchCrit.tags.mobKind = kAllMob;
 		CHECK(omfiGetNextMob(sourceIter, &searchCrit, &mob));
-		strcpy(name, "\0");
+		strcpy( (char*) name, "\0");
 		CHECK(omfiMobGetInfo(fileHdl, mob, &mobID,
 				     NAMESIZE, name,
 				     &lastModified, &createTime));
@@ -728,19 +728,19 @@ static omfErr_t PrintVideoInfo(omfHdl_t fileHdl,
       switch (layout)
 		{
 		case kFullFrame:
-		  strcpy(layoutString, "Full Frame");
+		  strcpy( (char*) layoutString, "Full Frame");
 		  break;
 		case kSeparateFields:
-		  strcpy(layoutString, "Separate Fields");
+		  strcpy( (char*) layoutString, "Separate Fields");
 		  break;
 		case kOneField:
-		  strcpy(layoutString, "One Field");
+		  strcpy( (char*) layoutString, "One Field");
 		  break;
 		case kMixedFields:
-		  strcpy(layoutString, "Mixed Fields");
+		  strcpy( (char*) layoutString, "Mixed Fields");
 		  break;
 		default:
-		  strcpy(layoutString, "Null Layout");
+		  strcpy( (char*) layoutString, "Null Layout");
 		  break;
 		}
       printf("            Layout        %s\n", layoutString);

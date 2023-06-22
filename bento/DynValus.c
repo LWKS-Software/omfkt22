@@ -966,7 +966,7 @@ static unsigned char *CM_NEAR createDataPacket(TOCObjectPtr type, char *metaData
                         continue;
 
       case Meta_String: s = va_arg(ap, unsigned char *);      /* %s                     */
-                        strcpy((char *)dp, (char *)s);
+                        strcpy( (char*) (char *)dp, (char *)s);
                         dp += strlen((char *)s) + 1;
                         continue;
     } /* switch */
@@ -1647,7 +1647,7 @@ unsigned int  cmVScanDataPacketGuts(TOCObjectPtr type, char *metaData,
                         ++nbrAssigned;
                         continue;
 
-      case Meta_String: strcpy((char *)p, (char *)dp);          /* %s                   */
+      case Meta_String: strcpy( (char*) (char *)p, (char *)dp);          /* %s                   */
                         ++nbrAssigned;                          /* see caution comments!*/
                         continue;
 

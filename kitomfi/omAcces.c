@@ -383,7 +383,7 @@ omfErr_t omfsWriteString(
 			char tmp[5];
 
 			memset(tmp, 0, 5);
-			strcpy(tmp, data);
+			strcpy( (char*) tmp, data);
 			CHECK (OMWriteProp(file, obj, prop, zero, OMString, 5,
 									tmp));
 			
@@ -3180,7 +3180,7 @@ omfErr_t omfsWriteUniqueName(
 			char tmp[5];
 
 			memset(tmp, 0, 5);
-			strcpy(tmp, data);
+			strcpy( (char*) tmp, data);
 	  		CHECK (OMWriteProp(file, obj, prop, field1, OMUniqueName, 
 					5, tmp));
 			

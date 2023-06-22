@@ -162,7 +162,7 @@ static void CM_NEAR processOptions(int argc, char *argv[])
 									exit(EXIT_FAILURE);
 			}
 		else if (*filename == 0)
-			strcpy(filename, arg);
+			strcpy( (char*) filename, arg);
 		else {
 			display(stderr, "### Usage: %s %s\n"
 											"###        More than one filename specified\n", argv[0], CmdLineOptionSyntax);
@@ -210,8 +210,8 @@ static void CM_NEAR doTests(void)
 	CMSession			 session;
 	unsigned char  buffer[256];
 
-	if (*filename == 0) strcpy(filename, "SubVCont"         );
-	strcpy(origFilename, filename);
+	if (*filename == 0) strcpy( (char*) filename, "SubVCont"         );
+	strcpy( (char*) origFilename, filename);
 	
 	session = CMStartSession(sessionRoutinesMetahandler, NULL);
 	CMDebugging(session, 256, dbgFile, 1);

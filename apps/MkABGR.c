@@ -165,8 +165,8 @@ main(int argc, char *argv[])
 	MaxApplZone();
 #endif
 
-	strcpy(mobName, "ABGR");
-	strcpy(fname, mobName);
+	strcpy( (char*) mobName, "ABGR");
+	strcpy( (char*) fname, mobName);
 	strcat(fname, ".omf");
 
 	inFP = fopen("chyron.inp", "rb");

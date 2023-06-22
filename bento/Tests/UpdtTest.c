@@ -192,9 +192,9 @@ static void CM_NEAR processOptions(int argc, char *argv[])
 									exit(EXIT_FAILURE);
 			}
 		else if (*targetFilename == 0)
-			strcpy(targetFilename, arg);
+			strcpy( (char*) targetFilename, arg);
 		else if (*updatingFilename == 0)
-			strcpy(updatingFilename, arg);
+			strcpy( (char*) updatingFilename, arg);
 		else {
 			display(stderr, "### Usage: %s %s\n"
 											"###        Too many filenames specified\n", argv[0], CmdLineOptionSyntax);
@@ -1215,7 +1215,7 @@ static void CM_NEAR doDebuggingTests(CMBoolean separateTarget, char *targetFilen
 	
 	createContainer(targetFilename);
 	
-	if (!separateTarget) strcpy(updatingFilename, targetFilename);
+	if (!separateTarget) strcpy( (char*) updatingFilename, targetFilename);
 	
 	myRefCon = createRefConForMyHandlers(session, updatingFilename, getTargetType);
 	setHandlersTrace(myRefCon, traceHandlers, handlerDbgFile);
@@ -1651,7 +1651,7 @@ static void CM_NEAR doSeparateContainerUpdateTests(char *targetFilename,
 	if (dbgFile) 
 		display(dbgFile, "==========================================================================\n");
 	
-	strcat(strcpy((char *)updatingFilename1, (char *)updatingFilename), "1");
+	strcat(strcpy( (char*) (char *)updatingFilename1, (char *)updatingFilename), "1");
 	
 	myRefCon = createRefConForMyHandlers(session, updatingFilename1, getTargetType);
 	setHandlersTrace(myRefCon, traceHandlers, handlerDbgFile);
@@ -1938,10 +1938,10 @@ void CM_C main(int argc, char *argv[])
 	
 	processOptions(argc, argv);
 	
-	if (*targetFilename == 0) strcpy(targetFilename, "TargCont"       );
-	strcpy(origFilename, targetFilename);
+	if (*targetFilename == 0) strcpy( (char*) targetFilename, "TargCont"       );
+	strcpy( (char*) origFilename, targetFilename);
 	
-	if (*updatingFilename == 0) strcpy(updatingFilename, "Upd"              );
+	if (*updatingFilename == 0) strcpy( (char*) updatingFilename, "Upd"              );
 	
 	session = CMStartSession(sessionRoutinesMetahandler, NULL);
 	CMDebugging(session, 256, dbgFile, 1);

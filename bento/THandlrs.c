@@ -310,7 +310,7 @@ static CMRefCon open_Handler(CMRefCon attributes, CMOpenMode mode)
   p->sessionData = sessionData;                   /* save the current session ptr       */
   p->value = value;                               /* value we will do operations on     */
   p->size  = (unsigned int )CMGetValueSize(value);/* value's size                       */
-  strcpy(p->typeName, typeName);                  /* copy in the global type name       */
+  strcpy( (char*) p->typeName, typeName);                  /* copy in the global type name       */
 
   /* Check the open mode and do appropriate checks on size. Set appropriate position... */
 

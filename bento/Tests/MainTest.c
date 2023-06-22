@@ -215,7 +215,7 @@ static void CM_NEAR processOptions(int argc, char *argv[])
 									exit(EXIT_FAILURE);
 			}
 		else if (*filename == 0)
-			strcpy(filename, arg);
+			strcpy( (char*) filename, arg);
 		else {
 			display(stderr, "### Usage: %s %s\n"
 											"###        More than one filename specified\n", argv[0], CmdLineOptionSyntax);
@@ -911,7 +911,7 @@ static void CM_NEAR doConvertingTests(void)
 	if (dbgFile) 
 		display(dbgFile, "--------------------------------------------------------------------------\n");
 	 
-	strcpy(filename, origFilename);
+	strcpy( (char*) filename, origFilename);
 	strcat(filename, "XF"           );
 	
 	if (!quiet) {
@@ -1070,7 +1070,7 @@ static void CM_NEAR doReferenceTests(void)
 	if (dbgFile) 
 		display(dbgFile, "--------------------------------------------------------------------------\n");
 	 
-	strcpy(filename, origFilename);
+	strcpy( (char*) filename, origFilename);
 	strcat(filename, "Ref"     );
 	
 	if (!quiet) {
@@ -1305,7 +1305,7 @@ static void CM_NEAR doEmbeddedTests(void)
 	if (dbgFile) 
 		display(dbgFile, "--------------------------------------------------------------------------\n");
 	
-	strcpy(filename, origFilename);
+	strcpy( (char*) filename, origFilename);
 	strcat(filename, "Emb"          );
 
 	/*---------------------------------------------------------------------------------*
@@ -1767,8 +1767,8 @@ void CM_C main(int argc, char *argv[])
 	
 	processOptions(argc, argv);
 	
-	if (*filename == 0) strcpy(filename, "TestC"        );
-	strcpy(origFilename, filename);
+	if (*filename == 0) strcpy( (char*) filename, "TestC"        );
+	strcpy( (char*) origFilename, filename);
 	
 	session = CMStartSession(sessionRoutinesMetahandler, NULL);
 	CMDebugging(session, 256, dbgFile, 1);

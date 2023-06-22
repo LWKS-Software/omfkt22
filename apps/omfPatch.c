@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 
 #if defined(THINK_C) || defined(__MWERKS__)
     argc = ccommand(&argv);
-    strcpy(argv[0],"omfPatch");
+    strcpy( (char*) argv[0],"omfPatch");
     MacInit();
 #if OMFI_MACSF_STREAM
     where.h = 20;

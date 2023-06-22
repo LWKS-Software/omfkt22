@@ -223,7 +223,7 @@ CMRefCon CM_FIXEDARGS createRefConForMyEmbHandlers(const CMValue parentValue)
   p->tracing     = 0;                                 /* ...ditto                       */
   p->position    = 0;                                 /* container not "open" yet       */
   p->size        = 0;                                 /* don't know size yet            */
-  strcpy(p->typeName, typeName);                      /* copy in the container typeName */
+  strcpy( (char*) p->typeName, typeName);                      /* copy in the container typeName */
 
   return ((CMRefCon)p);                               /* return refCon as anonymous ptr */
 }

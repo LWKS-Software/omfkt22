@@ -569,7 +569,7 @@ static CMBoolean useValue_Handler(CMValue dynamicBaseValue, CMType type,
   }
   
   if (*fileData.mode == 'w') {                        /* if file was opened for writing */
-    strcpy(fileData.mode, "rb+");                     /* future opens will be updating  */
+    strcpy( (char*) fileData.mode, "rb+");                     /* future opens will be updating  */
     CMWriteValueData(dynamicBaseValue, (CMPtr)&fileData, 0, FileDataSize); 
   }                                                   /* it's forever changed!          */
 

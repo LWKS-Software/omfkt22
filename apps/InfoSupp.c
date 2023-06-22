@@ -57,11 +57,11 @@ void omfPrintAuditTrail(omfHdl_t fileHdl)
 										&identObj, n));
 			/***/
 			if(omfsReadString(fileHdl, identObj, OMIDNTCompanyName, text, sizeof(text)) != OM_ERR_NONE)
-				strcpy(text, "<Not Specified>");
+				strcpy( (char*) text, "<Not Specified>");
 			printf("    Company Name:      %s\n", text);
 			/***/
 			if(omfsReadString(fileHdl, identObj, OMIDNTProductName, text, sizeof(text)) != OM_ERR_NONE)
-				strcpy(text, "<Not Specified>");
+				strcpy( (char*) text, "<Not Specified>");
 			printf("    Product Name:      %s\n", text);
 			/***/
 			if(omfsReadProductVersionType(fileHdl, identObj, OMIDNTProductVersion,
@@ -77,20 +77,20 @@ void omfPrintAuditTrail(omfHdl_t fileHdl)
 			}
 			/***/
 			if(omfsReadString(fileHdl, identObj, OMIDNTPlatform, text, sizeof(text)) != OM_ERR_NONE)
-				strcpy(text, "<Not Specified>");
+				strcpy( (char*) text, "<Not Specified>");
 			printf("    Platform:          %s\n", text);
 			/***/
 			if(omfsReadInt16(fileHdl, identObj, OMIDNTByteOrder, &byteOrder) == OM_ERR_NONE)
 			{
 				if(byteOrder == MOTOROLA_ORDER)
-					strcpy(text, "Big-Endian");
+					strcpy( (char*) text, "Big-Endian");
 				else if(byteOrder == INTEL_ORDER)
-					strcpy(text, "Little-Endian");
+					strcpy( (char*) text, "Little-Endian");
 				else 
-					strcpy(text, "<illegal>");
+					strcpy( (char*) text, "<illegal>");
 			}
 			else
-				strcpy(text, "<Not Specified>");
+				strcpy( (char*) text, "<Not Specified>");
 			printf("    Byte Order:        %s\n", text);
 			
 			

@@ -404,7 +404,7 @@ static omfErr_t CreateCompositionMob(omfHdl_t    fileHdl,
 		edgecode.startFrame = 0;
 		edgecode.filmKind = kFt35MM;
 		edgecode.codeFormat = kEtKeycode;
-		strcpy(edgecode.header, "DevDesk");
+		strcpy( (char*) edgecode.header, "DevDesk");
 		CHECK(omfiEdgecodeNew(fileHdl, clipLen30, edgecode, &ecClip));
 		if((rev == kOmfRev1x) || (rev == kOmfRevIMA))
 		{

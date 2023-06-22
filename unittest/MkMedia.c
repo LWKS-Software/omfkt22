@@ -243,7 +243,7 @@ static omfErr_t addTestsForCodec(omfCodecID_t codecID,
 				(*privateAVR).product = (*avrData).product;
 				avrSize = sizeof((*avrData).avr);
 				(*privateAVR).avr = omfsMalloc(avrSize);
-				strcpy((*privateAVR).avr, (*avrData).avr);
+				strcpy( (char*) (*privateAVR).avr, (*avrData).avr);
 				result[cnt].codecPrivateDataLen = sizeof(avidAVRdata_t) + avrSize;
 			 } /* private AVR data */
 
@@ -1293,7 +1293,7 @@ omfErr_t setupStandardTests(mediaTestDef_t **resultPtr,
 		  {
 			 avrData.product = avidComposerMac;
 
-			 strcpy(avrData.avr, "AVR5");
+			 strcpy( (char*) avrData.avr, "AVR5");
 			 CHECK(addTestsForCodec(CODEC_AJPG_VIDEO, PICTUREKIND, MAX_STD_TESTS,
 									kOmfPixRGBA, TRUE, &avrData, result, numTests));
 		  }
@@ -1838,7 +1838,7 @@ static omfErr_t WriteMedia(omfHdl_t filePtr, mediaTestDef_t *testDef)
 		MakeRational(4, 3, &imageAspectRatio);
 		MakeRational(44100, 1, &audioRate);
 		
-		strcpy(mobName, testDef->codecID);
+		strcpy( (char*) mobName, testDef->codecID);
 		strcat(mobName, testDef->testName);
 		
 		CHECK(omfmMasterMobNew(	filePtr, 					/* file (IN) */

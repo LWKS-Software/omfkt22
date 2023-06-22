@@ -164,8 +164,8 @@ int main(int argc, char *argv[])
       videoSignal = kPALSignal;
       tapeFormat = kHi8Format;
       omfsCvtInt32toInt64(500, &length);
-      strcpy(manufacturer, "Some Tape Manufacturer");
-      strcpy(model, "Some Tape Model");
+      strcpy( (char*) manufacturer, "Some Tape Manufacturer");
+      strcpy( (char*) model, "Some Tape Model");
       if (rev == kOmfRev2x) {
 	printf("Adding descriptor info to tape mob...\n");
 	CHECK(omfmTapeMobSetDescriptor(fileHdl, tapeMob, &formFactor, 
@@ -184,8 +184,8 @@ int main(int argc, char *argv[])
 	  perfPerFrame = 8;
 	  aspectRatio.numerator = 1;
 	  aspectRatio.denominator = 2;
-	  strcpy(manufacturer, "Some Film Manufacturer");
-	  strcpy(model, "Some Film Model");
+	  strcpy( (char*) manufacturer, "Some Film Manufacturer");
+	  strcpy( (char*) model, "Some Film Model");
 	  printf("Adding descriptor info to film mob...\n");
 	  CHECK(omfmFilmMobSetDescriptor(fileHdl, filmMob, &filmFormat,
 					 NULL /* frame rate */, 

@@ -253,7 +253,7 @@ CMRefCon CM_FIXEDARGS createRefConForMyHandlers(CMSession sessionData,
 		omfCMError(sessionData, "Allocation of \"refCon\" failed for container \"^0\"!", pathname);
 		return (NULL);
 	}
-	strcpy(p->pathname, "omf Memory File");	/* save pathname for the open handler   */
+	strcpy( (char*) p->pathname, "omf Memory File");	/* save pathname for the open handler   */
 	p->f = pMem;
 
 	p->haveSize = 0;	/* no file size known yet               */

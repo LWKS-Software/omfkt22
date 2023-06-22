@@ -432,7 +432,7 @@ static omfErr_t codecCreateAVR(omfCodecParms_t * parmblk,
 		{
 			signalType = kVideoSignalNull;
 			XASSERT(strlen(ptr) < sizeof(avr), OM_ERR_BAD_VARIETY);
-			strcpy(avr, ptr);
+			strcpy( (char*) avr, ptr);
 		}
 
 		

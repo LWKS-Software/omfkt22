@@ -757,7 +757,7 @@ omfBool IsDatakindMediaStream(
 	   * should be updated in the future to support private datakinds.
 	   */
 
-	  /* Getting the name once and strcpy() is faster than calling each
+	  /* Getting the name once and strcpy( (char*) ) is faster than calling each
 	   * "isDatakind" function which will retrieve the name each time.
 	   */
 	  CHECK(omfiDatakindGetName(file, dataDef, OMUNIQUENAME_SIZE, name));
@@ -2487,7 +2487,7 @@ omfErr_t omfiEffectDefGetInfo(
 			omfError = omfsReadString(file, effectDef, OMEDEFEffectName, 
 								 (char *)nameBuf, nameSize);
 			if (omfError == OM_ERR_PROP_NOT_PRESENT)
-			  strcpy(nameBuf, "\0");
+			  strcpy( (char*) nameBuf, "\0");
 			else if (omfError != OM_ERR_NONE)
 			  {
 				RAISE(omfError);
@@ -2498,7 +2498,7 @@ omfErr_t omfiEffectDefGetInfo(
 			omfError = omfsReadString(file, effectDef, OMEDEFEffectDescription,
 								 (char *)descBuf, descSize);
 			if (omfError == OM_ERR_PROP_NOT_PRESENT)
-			  strcpy(descBuf, "\0");
+			  strcpy( (char*) descBuf, "\0");
 			else if (omfError != OM_ERR_NONE)
 			  {
 				RAISE(omfError);
@@ -4768,7 +4768,7 @@ omfErr_t omfiGetNextMob(
 				  {
 					iterHdl->searchCrit.tags.name = (omfString)
 					  omOptMalloc(iterHdl->file, strlen((omfString)searchCrit->tags.name));
-					strcpy(iterHdl->searchCrit.tags.name, 
+					strcpy( (char*) iterHdl->searchCrit.tags.name, 
 						   (omfString)searchCrit->tags.name);
 				  }
 				else if ((*searchCrit).searchTag != kNoSearch)
@@ -5034,7 +5034,7 @@ static omfErr_t GetNextArrayElem(
 			  {
 				if ((*searchCrit).searchTag == kByDatakind)
 				  {
-					strcpy(iterHdl->searchCrit.tags.datakind, 
+					strcpy( (char*) iterHdl->searchCrit.tags.datakind, 
 						   (*searchCrit).tags.datakind);
 				  }
 				else if (((*searchCrit).searchTag == kByClass) && 

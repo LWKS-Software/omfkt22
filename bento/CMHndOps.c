@@ -440,7 +440,7 @@ void CM_VARARGS omfCMError(CMSession sessionData, CMErrorString message, ...)
 void CM_FIXEDARGS CMVError(CMSession sessionData, CMErrorString message, va_list inserts)
 {
   if (sessionData != NULL) {                                    /* if session defined...*/
-    strcpy((char *)SessionScratchBufr, message);                /* ...use private bufr  */
+    strcpy( (char*) (char *)SessionScratchBufr, message);                /* ...use private bufr  */
     CMVAddMsgInserts((char *)SessionScratchBufr, 256, inserts); /* ...add in inserts    */
     SessionERROR1(CM_err_GenericMessage, SessionScratchBufr);   /* ...report error      */
   }

@@ -328,7 +328,7 @@ CMRefCon CM_FIXEDARGS createRefConForMyHandlers(CMSession sessionData,
 		omfCMError(sessionData, "Allocation of \"refCon\" failed for container \"^0\"!", pathname);
 		return (NULL);
 	}
-	strcpy(p->pathname, pathname);	/* save pathname for the open handler   */
+	strcpy( (char*) p->pathname, pathname);	/* save pathname for the open handler   */
 #if ENABLE_TRACING
 	p->traceFile = NULL;	/* set only by setHandlersTrace()       */
 	p->tracing = 0;		/* ...ditto                             */

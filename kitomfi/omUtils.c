@@ -862,7 +862,7 @@ omfErr_t omfsRegisterType(
 	XPROTECT(NULL)
 	{
 		type.revs = revs;
-		strcpy(type.typeName, header);
+		strcpy( (char*) type.typeName, header);
 		strcat(type.typeName, typeName);
 		type.swabNeeded = swabNeeded;
 		if(revs == kOmfTstRev1x || revs == kOmfTstRevEither)
@@ -910,7 +910,7 @@ static void ComputePropertyName(omfClassIDPtr_t classTag, char *propName, char *
 
 	nameLen = strlen(header) + tagLen + 1 + strlen(propName) + 1;
 
-	strcpy(destBuf, header);
+	strcpy( (char*) destBuf, header);
 	if (classTag != NULL)
 	{
 		strncat(destBuf, classTag, sizeof(omfClassID_t));
@@ -1186,11 +1186,11 @@ omfErr_t omfiDatakindRegister(
 		/* Append "omfi:data" if name doesn't have it */
 		if (strncmp(name, "omfi:data:", 10))
 		  {
-			strcpy(datakindName, header);
+			strcpy( (char*) datakindName, header);
 			strcat(datakindName, name);
 		  }
 		else
-		  strcpy(datakindName, name);
+		  strcpy( (char*) datakindName, name);
 
 		tmpDef = (omfDDefObj_t)omfsTableDefLookup(file->datakinds, 
 												  datakindName);
@@ -1269,11 +1269,11 @@ omfErr_t omfiEffectDefRegister(
 		/* Append "omfi:effect" if name doesn't have it */
 		if (strncmp(name, "omfi:effect:", 12))
 		  {
-			strcpy(effectName, header);
+			strcpy( (char*) effectName, header);
 			strcat(effectName, name);
 		  }
 		else
-		  strcpy(effectName, name);
+		  strcpy( (char*) effectName, name);
 
 		tmpDef = (omfEDefObj_t)omfsTableDefLookup(file->effectDefs, 
 												  effectName);

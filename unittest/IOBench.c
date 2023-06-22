@@ -311,7 +311,7 @@ static omfErr_t CheckTIFFUncompressedOMF(omfHdl_t filePtr,
 		CHECK(status);
 
 		search.searchTag = kByDatakind;
-		strcpy(search.tags.datakind, PICTUREKIND);
+		strcpy( (char*) search.tags.datakind, PICTUREKIND);
 		check(omfiIteratorAlloc(filePtr, &trackIter));
 		CHECK(omfiMobGetNextTrack(trackIter, masterMob, &search, &track));
 

@@ -242,7 +242,7 @@ GlobalNamePtr cmCreateGlobalName(const void *table, const unsigned char *globalN
   ContainerPtr  container = ((GlobalNameTblPtr)table)->container;
 
   if ((newGlobalName = (GlobalNamePtr)CMmalloc(container, sizeof(GlobalName) + strlen((char *)globalName))) != NULL) {
-    strcpy((char *)newGlobalName->globalName, (char *)globalName);/* fill in new entry  */
+    strcpy( (char*) (char *)newGlobalName->globalName, (char *)globalName);/* fill in new entry  */
     newGlobalName->theValue = NULL;                               /* set elsewhere      */
     g = cmEnterGlobalName(table, newGlobalName, dup);             /* enter the name     */
   } else {
@@ -320,7 +320,7 @@ GlobalNamePtr cmLookupGlobalName(const void *table, const unsigned char *globalN
       GlobalNamePtr t;
 
 	  if ((t = (GlobalNamePtr)CMmalloc(container, sizeof(GlobalName) + strlen((char *)globalName))) != NULL) {
-	    strcpy((char *)t->globalName, (char *)globalName);          /* fill in tmp entry    */
+	    strcpy( (char*) (char *)t->globalName, (char *)globalName);          /* fill in tmp entry    */
 	    g = (GlobalNamePtr)cmLookupSymbol(t, ((GlobalNameTblPtr)table)->globalNameRoot, compare);
 	    CMfree(container, t);                                                  /* remove tmp entry     */
 	    if (g && g->theValue == NULL) g = NULL;                     /* chk for deleted name */

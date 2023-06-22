@@ -289,7 +289,7 @@ main(int argc, char *argv[])
 	    {
 	      argMask |= ARG_IN;
 	      argIndex++;
-	      strcpy(inFileName, argv[argIndex]);
+	      strcpy( (char*) inFileName, argv[argIndex]);
 	    }
 	  else
 	    usage();
@@ -342,16 +342,16 @@ main(int argc, char *argv[])
   if (! (argMask & ARG_AVR))
     {
       if (TIFF_codec)
-		strcpy(codec, CODEC_TIFF_VIDEO);
+		strcpy( (char*) codec, CODEC_TIFF_VIDEO);
       else
-		strcpy(codec, CODEC_RGBA_VIDEO);
+		strcpy( (char*) codec, CODEC_RGBA_VIDEO);
     }
 
 
   if (argMask & ARG_PAL)
-    strcpy(mobName, "p");
+    strcpy( (char*) mobName, "p");
   else
-    strcpy(mobName,"n");
+    strcpy( (char*) mobName,"n");
 
   if (argMask & ARG_FILM)
     strcat(mobName, "f");
@@ -361,7 +361,7 @@ main(int argc, char *argv[])
   else
     strcat(mobName, avrData.avr);
 
-  strcpy(outFileName, mobName);
+  strcpy( (char*) outFileName, mobName);
   strcat(outFileName, ".omf");
 
   for(ptr = outFileName; *ptr != '\0'; ptr++)

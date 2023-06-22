@@ -197,7 +197,7 @@ static void showTouchedList(TouchedListEntryPtr touch, CMRefCon refCon)
     if (touchFlags == 0x0000U)
       *flagsMeaning = '\0';
     else {
-      strcpy(flagsMeaning, " (");
+      strcpy( (char*) flagsMeaning, " (");
 
       for (i = 0, mask = 1; i < 16; ++i, mask <<= 1) {
         if ((touchFlags & mask) == TouchedRemoved) {
@@ -234,7 +234,7 @@ static void showTouchedList(TouchedListEntryPtr touch, CMRefCon refCon)
         }
       } /* for */
 
-      strcpy(flagsMeaning + strlen(flagsMeaning) - 1, ")");
+      strcpy( (char*) flagsMeaning + strlen(flagsMeaning) - 1, ")");
     }
 
     display(f, "\n            0x%.8lX: theValueHdr  = 0x%.8lX\n"
@@ -278,7 +278,7 @@ static TOCWalkReturns showObject(ContainerPtr container, TOCObjectPtr theObject,
   if (objectFlags == 0x0000U)
     *flagsMeaning = '\0';
   else {
-    strcpy(flagsMeaning, " (");
+    strcpy( (char*) flagsMeaning, " (");
 
     for (i = 0, mask = 1; i < 16; ++i, mask <<= 1) {
       if ((objectFlags & mask) == UndefinedObject) {
@@ -319,7 +319,7 @@ static TOCWalkReturns showObject(ContainerPtr container, TOCObjectPtr theObject,
       }
     } /* for */
 
-    strcpy(flagsMeaning + strlen(flagsMeaning) - 1, ")");
+    strcpy( (char*) flagsMeaning + strlen(flagsMeaning) - 1, ")");
   }
 
   display(f, "---------------------------------------------\nTOCObject\n");
@@ -423,7 +423,7 @@ static TOCWalkReturns showValueHdr(ContainerPtr container, TOCValueHdrPtr theVal
   if (valueFlags == 0x0000U)
     *flagsMeaning = '\0';
   else {
-    strcpy(flagsMeaning, " (");
+    strcpy( (char*) flagsMeaning, " (");
 
     for (i = 0, mask = 1; i < 16; ++i, mask <<= 1) {
       if ((theValueHdr->valueFlags & mask) == ValueDeleted) {
@@ -464,7 +464,7 @@ static TOCWalkReturns showValueHdr(ContainerPtr container, TOCValueHdrPtr theVal
       }
     } /* for */
 
-    strcpy(flagsMeaning + strlen(flagsMeaning) - 1, ")");
+    strcpy( (char*) flagsMeaning + strlen(flagsMeaning) - 1, ")");
   }
 
   display(f, "\n                        TOCValueHdr\n"
@@ -552,7 +552,7 @@ static TOCWalkReturns showValue(ContainerPtr container, TOCValuePtr theValue, CM
   if (flags == 0x0000U)
     *flagsMeaning = '\0';
   else {
-    strcpy(flagsMeaning, " (");
+    strcpy( (char*) flagsMeaning, " (");
 
     for (i = 0, mask = 1; i < 16; ++i, mask <<= 1) {
       if ((flags & mask) == kCMImmediate) {
@@ -573,7 +573,7 @@ static TOCWalkReturns showValue(ContainerPtr container, TOCValuePtr theValue, CM
       }
     } /* for */
 
-    strcpy(flagsMeaning + strlen(flagsMeaning) - 1, ")");
+    strcpy( (char*) flagsMeaning + strlen(flagsMeaning) - 1, ")");
   }
 
   display(f, "                                    TOCValue\n"

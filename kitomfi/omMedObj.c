@@ -637,7 +637,7 @@ omfErr_t omfmFileMobNew(
 		}
 		else
 		{
-			strcpy(codecIDString, codec);
+			strcpy( (char*) codecIDString, codec);
 			variant = NULL;
 		}
 
@@ -1136,7 +1136,7 @@ omfErr_t omfmFilmMobGetDescriptor(
 										  manufacturer, manuSize);
 			 if (omfError == OM_ERR_PROP_NOT_PRESENT)
 				{
-				  strcpy(manufacturer, "\0");
+				  strcpy( (char*) manufacturer, "\0");
 				}
 			 else if (omfError != OM_ERR_NONE)
 				{
@@ -1149,7 +1149,7 @@ omfErr_t omfmFilmMobGetDescriptor(
 										 modelSize);
 			 if (omfError == OM_ERR_PROP_NOT_PRESENT)
 				{
-				  strcpy(model, "\0");
+				  strcpy( (char*) model, "\0");
 				}
 			 else if (omfError != OM_ERR_NONE)
 				{
@@ -1283,7 +1283,7 @@ omfErr_t omfmTapeMobGetDescriptor(
 											manufacturer, manuSize);
 			 if (omfError == OM_ERR_PROP_NOT_PRESENT)
 				{
-				  strcpy(manufacturer, "\0");
+				  strcpy( (char*) manufacturer, "\0");
 				}
 			 else if (omfError != OM_ERR_NONE)
 				{
@@ -1296,7 +1296,7 @@ omfErr_t omfmTapeMobGetDescriptor(
 										  modelSize);
 			 if (omfError == OM_ERR_PROP_NOT_PRESENT)
 				{
-				  strcpy(model, "\0");
+				  strcpy( (char*) model, "\0");
 				}
 			 else if (omfError != OM_ERR_NONE)
 				{
@@ -3516,7 +3516,7 @@ omfErr_t   omfmSourceGetVideoSignalType(omfMediaHdl_t media,
 			{
 				CHECK(omfiIteratorAlloc(media->mainFile, &iterHdl));
 				searchCrit.searchTag = kByDatakind;
-				strcpy(searchCrit.tags.datakind, PICTUREKIND);
+				strcpy( (char*) searchCrit.tags.datakind, PICTUREKIND);
 				CHECK(omfiMobGetNextSlot(iterHdl, sourceInfo.mob, &searchCrit, &mslot));
 				
 				CHECK(omfiIteratorDispose(media->mainFile, iterHdl));

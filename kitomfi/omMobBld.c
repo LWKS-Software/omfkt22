@@ -3208,11 +3208,11 @@ omfBool omfiDatakindLookup(
 	/* Append "omfi:data" if name doesn't have it */
 	if (strncmp(name, "omfi:data:", 10))
 	  {
-		strcpy(datakindName, header);
+		strcpy( (char*) datakindName, header);
 		strcat(datakindName, name);
 	  }
 	else
-	  strcpy(datakindName, name);
+	  strcpy( (char*) datakindName, name);
 
 	tmpDef = (omfDDefObj_t)omfsTableDefLookup(file->datakinds, 
 											  datakindName);
@@ -3275,11 +3275,11 @@ omfBool omfiEffectDefLookup(
 	/* Append "omfi:effect" if name doesn't have it */
 	if (strncmp(name, "omfi:effect:", 12))
 	  {
-		strcpy(effectName, header);
+		strcpy( (char*) effectName, header);
 		strcat(effectName, name);
 	  }
 	else
-	  strcpy(effectName, name);
+	  strcpy( (char*) effectName, name);
 
 	tmpDef = (omfEDefObj_t)omfsTableDefLookup(file->effectDefs, 
 											  effectName);

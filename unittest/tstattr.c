@@ -162,7 +162,7 @@ int main(int argc, char *argv[])
 		attrKind = AK_STRING;
 		CHECK(omfsWriteAttrKind(fileHdl, anATTB, OMATTBKind, attrKind));
 		CHECK(omfsWriteString(fileHdl, anATTB, OMATTBName, "An Int attribute"));
-		strcpy(stringValue, "A String");
+		strcpy( (char*) stringValue, "A String");
 		CHECK(omfsWriteString(fileHdl, anATTB, OMATTBStringAttribute, stringValue));
 		CHECK(omfsAppendAttribute(fileHdl, theHeadObj, attrProp, anATTB));
 

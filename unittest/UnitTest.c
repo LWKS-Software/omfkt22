@@ -493,13 +493,13 @@ static int add2table(char *name, char *depend, proc2_t runtest,
     }
   if ((strlen(name)) >= 25)
       name[24] = '\0';       /* null terminate to 25 length */
-  strcpy(cur->name, name);
+  strcpy( (char*) cur->name, name);
   
   if (depend)             /* Does this test depend on the output of another? which one? */
     {
       if ((strlen(depend)) >= 25)
 	depend[24] = '\0';
-      strcpy(cur->depend, depend);
+      strcpy( (char*) cur->depend, depend);
     }
   
   if (runtest)               /* The function ptr that is the test function */
@@ -514,7 +514,7 @@ static int add2table(char *name, char *depend, proc2_t runtest,
 	  printf("Input filename too int  on test %s\n",name);
 	  exit(1);
 	}
-      strcpy(cur->input,input);
+      strcpy( (char*) cur->input,input);
     }
   if (output)              /* output filename for the runtest */
     {
@@ -523,7 +523,7 @@ static int add2table(char *name, char *depend, proc2_t runtest,
 	  printf("Input filename too int  on test %s\n",name);
 	  exit(1);
 	}
-      strcpy(cur->output,output);
+      strcpy( (char*) cur->output,output);
     }
 
   cur->mode = mode;        /* mode used for telling what kind of test this is */
@@ -531,14 +531,14 @@ static int add2table(char *name, char *depend, proc2_t runtest,
   if (comments) 
     {
       cur->comments = malloc(sizeof(char)*(strlen(comments)+1));
-      strcpy(cur->comments,comments);
+      strcpy( (char*) cur->comments,comments);
     }
   else
 	  cur->comments = NULL;
   if (results)
     {
       cur->results = malloc(sizeof(char)*(strlen(results)+1));
-      strcpy(cur->results,results);
+      strcpy( (char*) cur->results,results);
     }
   else
 	  cur->results = NULL;

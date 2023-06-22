@@ -1387,7 +1387,7 @@ CMContainer CM_FIXEDARGS CMOpenContainer(CMSession sessionData,
 
   if (useFlags & (kCMConverting | kCMUpdateByAppend | kCMUpdateTarget)) {
     *SessionScratchBufr = 0;
-    if (useFlags & kCMConverting) strcpy((char *)SessionScratchBufr, "kCMConverting");
+    if (useFlags & kCMConverting) strcpy( (char*) (char *)SessionScratchBufr, "kCMConverting");
     if (useFlags & kCMUpdateByAppend) {
       if (*SessionScratchBufr) strcat((char *)SessionScratchBufr, ", ");
       strcat((char *)SessionScratchBufr, "kCMUpdateByAppend");
@@ -2085,7 +2085,7 @@ CMContainer CM_FIXEDARGS CMVOpenNewContainer(CMSession sessionData,
       testUseFlags != kCMUpdateByAppend &&
       testUseFlags != kCMUpdateTarget) {
     *SessionScratchBufr = 0;
-    if (useFlags & kCMConverting) strcpy((char *)SessionScratchBufr, "kCMConverting");
+    if (useFlags & kCMConverting) strcpy( (char*) (char *)SessionScratchBufr, "kCMConverting");
     if (useFlags & kCMUpdateByAppend) {
       if (*SessionScratchBufr) strcat((char *)SessionScratchBufr, ", ");
       strcat((char *)SessionScratchBufr, "kCMUpdateByAppend");
@@ -2748,7 +2748,7 @@ void CM_FIXEDARGS CMGetContainerInfo(CMconst_CMContainer container,
   if (generation)     *generation     = (CMGeneration)((ContainerPtr)container)->generation;
   if (bufSize)        *bufSize        = (CM_USHORT)(((ContainerPtr)container)->tocBufSize / kCMBufSizeUnits);
   if (containerFlags) *containerFlags = (CMContainerFlags)((ContainerPtr)container)->containerFlags;
-  if (typeName)       strcpy((char *)typeName, (char *)TYPENAME);
+  if (typeName)       strcpy( (char*) (char *)typeName, (char *)TYPENAME);
   if (openMode)
     if (((ContainerPtr)container)->useFlags & kCMWriting)
       if (((ContainerPtr)container)->useFlags & kCMUpdating)
