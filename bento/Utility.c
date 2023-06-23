@@ -11,7 +11,7 @@
  |                           All rights reserved.                            |
  |                                                                           |
  *---------------------------------------------------------------------------*
- 
+
  This file containes a collection of generally usefull utility routines that don't
  logically fit anywhere else.
 */
@@ -26,25 +26,25 @@
 #include "CMTypes.h"
 #endif
 #ifndef __CM_API_TYPES__
-#include "CMAPITyp.h"    
+#include "CMAPITyp.h"
 #endif
 #ifndef __TOCENTRIES__
-#include "TOCEnts.h"   
+#include "TOCEnts.h"
 #endif
 #ifndef __TOCOBJECTS__
-#include "TOCObjs.h"   
+#include "TOCObjs.h"
 #endif
 #ifndef __CONTAINEROPS__
-#include "Containr.h"  
+#include "Containr.h"
 #endif
 #ifndef __UTILITYROUTINES__
-#include "Utility.h"        
+#include "Utility.h"
 #endif
 #ifndef __HANDLERS__
 #include "Handlers.h"
 #endif
 #ifndef __SESSIONDATA__
-#include "Session.h"          
+#include "Session.h"
 #endif
 
                                   CM_CFUNCTIONS
@@ -65,24 +65,24 @@
  *-----------------------------------------------*
 
  Converts the (int ) integer n to a string. If width>0 and width > strlen(string), then
- the number will be right-justified in a string of width characters.  If width<0 and 
+ the number will be right-justified in a string of width characters.  If width<0 and
  abs(width) > length(string), then the number is again right-justified but padded with
  leading zeros instead of blanks. In this case a negative number will have a minus as
  its first character.  If width is too small the entire number is returned overflowing
  the width.
- 
+
  If hex conversion is desired, set the hexConversion parameter to true.
- 
+
  The function returns the specified string parameter as its value. That string is assumed
  large enough to hold the number.
- 
+
  Note, this routine is provided as a substitute for sprintf().  It is more compact, faster,
  and doesn't "drag" in a shit-load of I/O library routines with it.
 */
 char *cml64tostr(CMCount n, short width, Boolean hexConversion, char *s)
 {
 	omfInt32	aLong;
-	
+
 	if(omfsTruncInt64toInt32(n, &aLong) == OM_ERR_NONE)
 		return(cmltostr(aLong, width, hexConversion, s));
 	else
@@ -97,13 +97,13 @@ char *cmltostr(int  n, short width, Boolean hexConversion, char *s)
   Boolean leading0s, neg = false;
   short   i, len, padding, w;
   char    filler, tmpStr[30], *d, *t, c1, c2, *s0 = s;
-  
+
   /* Convert the number to a string with NO leading zeros.  A zero value is just the    */
   /* string "0". After we have the string we "format" it. Note, when we get done with   */
   /* this conversion, t will point to the first digit of the string.                    */
-  
+
   if (n == 0)                             /* handle 0 specially                         */
-    strcpy( (char*) t = tmpStr, "0");
+    strcpy( t = tmpStr, "0");
   else if (hexConversion) {               /* converting to hex...                       */
     for (t = tmpStr, d = (char *)&n, leading0s = true, i = sizeof(int ); i; i--, d++) {
       c1 = "0123456789ABCDEF"[(*d >> 4) & 0x0F];
@@ -136,26 +136,26 @@ char *cmltostr(int  n, short width, Boolean hexConversion, char *s)
       *t-- = "0123456789"[n % 10];          /* done in a "portable" way!                */
       n /= 10;
     } while (n);
-    if (neg) 
+    if (neg)
       *t = '-';
     else
       ++t;
   }
-  
+
   /* Pad the string according to the width parameter.  If the width is too small, the   */
   /* entire number is returned overflowing the width.  If width large enough, pad with  */
   /* 0's or blanks according to whether width is negative or positive respectively.     */
-  
+
   len = (short)strlen(t);                   /* len is converted string width width      */
   w = (short)((width < 0) ? -width : width);/* w is abs(width)                          */
-  
+
   if (len < w) {                            /* converted string fits in width...        */
     padding = (short)(w - len);             /* ...this is how many pad chars we need    */
     if (width > 0)                          /* ...if width > 0...                       */
       filler = ' ';                         /* ...the padding is blanks                 */
     else {                                  /* ...if width < 0...                       */
       filler = '0';                         /* ...the padding is 0's, but...            */
-      if (neg) {                            /* ...if decimal conversion and negative... */ 
+      if (neg) {                            /* ...if decimal conversion and negative... */
         --padding;                          /* ...reduce amount of padding to put in "-"*/
         *t = '0';                           /* ...clobber the "-" already in string     */
         *s++ = '-';                         /* ...1st output char is the sign           */
@@ -163,9 +163,9 @@ char *cmltostr(int  n, short width, Boolean hexConversion, char *s)
     }
     while (padding--) *s++ = filler;        /* ...put in the padding                    */
   }
-  
+
   strcpy( (char*) s, t);                             /* copy the digits to the output            */
   return (s0);
 }
-                             
+
                               CM_END_CFUNCTIONS
