@@ -806,6 +806,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 90D51D38165C270E007A0D8E;
@@ -935,7 +936,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -965,12 +965,10 @@
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OBJROOT = "$(SYMROOT)/inter";
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "-std=c++0x";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				USE_HEADER_MAP = NO;
-				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -978,7 +976,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -1006,12 +1003,10 @@
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OBJROOT = "$(SYMROOT)/inter";
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "-std=c++0x";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				USE_HEADER_MAP = NO;
-				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -1048,10 +1043,8 @@
 					"\"$(SRCROOT)/../bento\"",
 				);
 				INSTALL_PATH = "@executable_path";
-				LD_DEPENDENCY_INFO_FILE = "$(PRODUCT_NAME)_dependency_info.dat";
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACH_O_TYPE = mh_dylib;
-				OBJROOT = "$(SYMROOT)/inter";
 				OTHER_CPLUSPLUSFLAGS = "-std=c++0x";
 				PORTKEY_INT64_NATIVE = 1;
 				PORTKEY_INT64_TYPE = __int64;
@@ -1094,10 +1087,8 @@
 					"\"$(SRCROOT)/../bento\"",
 				);
 				INSTALL_PATH = "@executable_path";
-				LD_DEPENDENCY_INFO_FILE = "$(PRODUCT_NAME)_dependency_info.dat";
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACH_O_TYPE = mh_dylib;
-				OBJROOT = "$(SYMROOT)/inter";
 				OTHER_CPLUSPLUSFLAGS = "-std=c++0x";
 				PORTKEY_INT64_NATIVE = 1;
 				PORTKEY_INT64_TYPE = __int64;
