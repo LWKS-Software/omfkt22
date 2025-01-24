@@ -12,11 +12,11 @@
  |                           All rights reserved.                            |
  |                                                                           |
  *---------------------------------------------------------------------------*
- 
+
  This is the Container Manager API definitions.  All routines needed to communicate with
  the Container Manager are defined here.  This is the only explicit #include needed. All
  other required headers are included from here.
- 
+
  Refer to Container Manager API documentation for details on these routines.
 
 
@@ -29,7 +29,7 @@
  qualified this way.  Since handlers are implementation or user dependent, these files
  must be compiled with the large memory model.  The only exception is local static
  routines which usually can be qualified with "near" (except, of course, for handlers).
- 
+
  This file uses the function and pointer memory model attribute macros defined
  CM_API_Environment.h.  See that file for further details.
 */
@@ -69,7 +69,7 @@ extern char *sys_errlist[];
 #endif
 
                                 CM_CFUNCTIONS
-                                
+
 /*---------------------------*
  | Session (task) operations |
  *---------------------------*/
@@ -100,17 +100,17 @@ CM_EXPORT CMHandlerAddr CM_FIXEDARGS CMGetOperation(CMType targetType,
 
 CM_EXPORT CMContainer CM_FIXEDARGS CMOpenContainer(CMSession sessionData,
                                                    CMRefCon attributes,
-                                                   CMconst_CMGlobalName typeName, 
+                                                   CMconst_CMGlobalName typeName,
                                                    CMContainerUseMode useFlags);
 CM_EXPORT CMContainer CM_VARARGS CMOpenNewContainer(CMSession sessionData,
                                                     CMRefCon attributes,
-                                                    CMconst_CMGlobalName typeName, 
+                                                    CMconst_CMGlobalName typeName,
                                                     CMContainerUseMode useFlags,
                                                     CMGeneration generation,
                                                     CMContainerFlags containerFlags, ...);
 CM_EXPORT CMContainer CM_FIXEDARGS CMVOpenNewContainer(CMSession sessionData,
                                                        CMRefCon attributes,
-                                                       CMconst_CMGlobalName typeName, 
+                                                       CMconst_CMGlobalName typeName,
                                                        CMContainerUseMode useFlags,
                                                        CMGeneration generation,
                                                        CMContainerFlags containerFlags,
@@ -118,7 +118,7 @@ CM_EXPORT CMContainer CM_FIXEDARGS CMVOpenNewContainer(CMSession sessionData,
 CM_EXPORT void CM_FIXEDARGS CMCloseContainer(CMconst_CMContainer container);
 CM_EXPORT void CM_FIXEDARGS CMAbortContainer(CMconst_CMContainer container);
 CM_EXPORT void CM_FIXEDARGS CMGetContainerInfo(CMconst_CMContainer container,
-                                               CMGeneration CM_PTR *generation, 
+                                               CMGeneration CM_PTR *generation,
                                                CM_USHORT CM_PTR *bufSize,
                                                CMContainerFlags CM_PTR *containerFlags,
                                                CMGlobalName typeName,
@@ -231,9 +231,9 @@ CM_EXPORT CMCount32 CM_FIXEDARGS CMVScanDataPacket(CMType type, CMMetaData metaD
 CM_EXPORT char CM_PTR * CM_VARARGS CMAddMsgInserts(char CM_PTR *msgString, CMSize32 maxLength, ...);
 CM_EXPORT char CM_PTR * CM_FIXEDARGS CMVAddMsgInserts(char CM_PTR *msgString, CMSize32 maxLength,
                                                       va_list inserts);
-CM_EXPORT CMErrorString CM_VARARGS omfCMGetErrorString(CMErrorString errorString, CMSize32 maxLength, 
+CM_EXPORT CMErrorString CM_VARARGS omfCMGetErrorString(CMErrorString errorString, CMSize32 maxLength,
                                                        CMErrorNbr errorNumber, ...);
-CM_EXPORT CMErrorString CM_FIXEDARGS CMVGetErrorString(CMErrorString errorString, CMSize32 maxLength, 
+CM_EXPORT CMErrorString CM_FIXEDARGS CMVGetErrorString(CMErrorString errorString, CMSize32 maxLength,
                                                        CMErrorNbr errorNumber, va_list inserts);
 CM_EXPORT char CM_PTR * CM_FIXEDARGS CMReturnContainerName(CMContainer container);
 

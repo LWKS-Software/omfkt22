@@ -280,7 +280,7 @@ typedef void (*TcmReleaseValue)(CMValue);
 
 CM_EXPORT struct TOCValueHdr *cmFollowTypes(struct TOCValueHdr *theBaseValueHdr,
                                             struct TOCObject *type,
-                                            Boolean isNewValue, va_list *constructorData);
+                                            Boolean isNewValue, va_list constructorData);
   /*
   This routine creates a dynamic value layers for the passed type and all of its base types,
   if any of these types have a "use value" handler.  This routine is only called by

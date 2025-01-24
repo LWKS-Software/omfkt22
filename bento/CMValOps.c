@@ -458,7 +458,7 @@ CMValue CM_FIXEDARGS CMVNewValue(CMObject object, CMProperty property, CMType ty
   /* the "real" value we created above if there are no dynamic values.                  */
 
   baseValueHdr = theValueHdr;
-  theValueHdr = cmFollowTypes(theValueHdr, (TOCObjectPtr)type, true, &dataInitParams);
+  theValueHdr = cmFollowTypes(theValueHdr, (TOCObjectPtr)type, true, dataInitParams);
 
   baseValueHdr->useCount = 1;                       /* set use count of "real" value    */
 

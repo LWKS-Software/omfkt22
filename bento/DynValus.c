@@ -838,7 +838,7 @@ static CMHandlerAddr CM_NEAR hasUseValueHandler(TOCValueHdrPtr baseValueHdr,
  or inconsistency data check is reported.  It is returned true otherwise.
 */
 
-static unsigned char *CM_NEAR createDataPacket(TOCObjectPtr type, char *metaData, va_list *constructorData)
+static unsigned char *CM_NEAR createDataPacket(TOCObjectPtr type, char *metaData, va_list constructorData)
 {
   ContainerPtr   container = type->container;
   unsigned char  c, *s, *dataPacket, *dp;
@@ -861,7 +861,7 @@ static unsigned char *CM_NEAR createDataPacket(TOCObjectPtr type, char *metaData
 
   packetSize = 0;                         /* sum packet size in here                    */
   mp = metaData;                          /* mp will be metaData pointer                */
-  VA_COPY( *constructorData, ap );        /* leave original constructorData ptr alone   */
+  VA_COPY( constructorData, ap );        /* leave original constructorData ptr alone   */
 
   while ((Boolean)(m = *mp++)) {          /* scan the metaData...                       */
     if (m != Meta_Trigger) continue;      /* if not format specification, loop          */
@@ -927,7 +927,7 @@ static unsigned char *CM_NEAR createDataPacket(TOCObjectPtr type, char *metaData
 
   mp = metaData;                          /* mp will be metaData pointer again          */
   dp = dataPacket;                        /* enter each data item at dp                 */
-  VA_COPY( *constructorData, ap );                  /* set to consume parameters again            */
+  VA_COPY( constructorData, ap );                  /* set to consume parameters again            */
 
   while ((Boolean)(m = *mp++)) {          /* rescan the metaData...                     */
     if (m != Meta_Trigger) continue;      /* if not format specification, loop          */
@@ -974,7 +974,7 @@ static unsigned char *CM_NEAR createDataPacket(TOCObjectPtr type, char *metaData
 
   *dp = (unsigned char)0;                 /* add null byte for cmVScanDataPacket()      */
 
-  VA_COPY( ap, *constructorData );        /* point constructorData at next set of args  */
+  VA_COPY( ap, constructorData );        /* point constructorData at next set of args  */
 
   return (dataPacket);                    /* return data packet to the caller           */
 }
@@ -1269,7 +1269,7 @@ void cmDeleteAllDynamicValueLayers(TOCValueHdrPtr theValueHdr, Boolean freeValue
 */
 
 TOCValueHdrPtr cmFollowTypes(TOCValueHdrPtr baseValueHdr, TOCObjectPtr type,
-                             Boolean isNewValue, va_list *constructorData)
+                             Boolean isNewValue, va_list constructorData)
 {
   ContainerPtr   container = baseValueHdr->container;
   TOCObjectPtr   baseType;
