@@ -223,8 +223,6 @@ elseif(APPLE)
 else()
     set_target_properties(omftoolkit PROPERTIES
         OUTPUT_NAME "omftoolkit"
-        VERSION ${PROJECT_VERSION}
-        SOVERSION 1
     )
 endif()
 
