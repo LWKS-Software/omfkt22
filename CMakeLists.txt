@@ -44,6 +44,8 @@ if(WIN32)
         -DOMFI_NEED_ULONG
         -DOMF_USE_DLL
         -DWIN32
+        -Dtrue=1
+        -Dfalse=0
     )
 elseif(APPLE)
     # Match Xcode GCC_PREPROCESSOR_DEFINITIONS exactly
