@@ -196,11 +196,24 @@ if(WIN32)
     set_target_properties(omftoolkit PROPERTIES
         COMPILE_PDB_NAME "omfToolkit"
         COMPILE_PDB_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+        PDB_NAME "omfToolkit"
+        PDB_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
     )
     # Set runtime library to static
     set_target_properties(omftoolkit PROPERTIES
         MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>"
     )
+    # Generate PDBs for both Debug and Release (MSVC)
+    if(MSVC)
+        # /Zi: generate full debug info for compiler; applied to all configs
+        target_compile_options(omftoolkit PRIVATE /Zi)
+        # /DEBUG: produce linker PDB; /OPT:REF /OPT:ICF preserve Release optimizations
+        target_link_options(omftoolkit PRIVATE
+            $<$<CONFIG:Release>:/DEBUG /OPT:REF /OPT:ICF>
+            $<$<CONFIG:RelWithDebInfo>:/DEBUG /OPT:REF /OPT:ICF>
+            $<$<CONFIG:MinSizeRel>:/DEBUG /OPT:REF /OPT:ICF>
+        )
+    endif()
 elseif(APPLE)
     set_target_properties(omftoolkit PROPERTIES
         OUTPUT_NAME "omftoolkit"
