@@ -217,6 +217,8 @@ if(WIN32)
 elseif(APPLE)
     set_target_properties(omftoolkit PROPERTIES
         OUTPUT_NAME "omftoolkit"
+        PREFIX ""
+        SUFFIX ".dylib"
         MACOSX_RPATH 1
         INSTALL_NAME_DIR "@rpath"
     )
